@@ -10,33 +10,39 @@ import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
 import Link from "next/link";
 
-const LoginComponent = () => {
+const SignUp = () => {
+  const router = useRouter();
+
   const [passwordShown, setPasswordShown] = useState(false);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [checkPassword, SetCheckPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const router = useRouter();
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    if (!email || !password) {
+    if (!email || !password || !name || !phone || !checkPassword) {
       setError("Please fill in all fields");
       setLoading(false);
       return;
     }
+
+    if (password !== checkPassword) {
+      setError("Passwords do not match");
+      setLoading(false);
+      return;
+    }
     api
-      .post("auth/login/", { email, password })
+      .post("users/", { email, password, phone, name })
       .then((res) => {
-        console.log("Login Successful:", res.data);
-
-        const accessToken = res.data.accessToken;
-
-        localStorage.setItem("jwtToken", accessToken);
+        console.log("Signup Successful:", res.data);
         setLoading(false);
-        router.push("/");
+        router.push("/login");
       })
       .catch((err) => {
         const { status, data } = err.response;
@@ -50,18 +56,36 @@ const LoginComponent = () => {
   const togglePasswordVisiblity = () => {
     setPasswordShown(!passwordShown);
   };
+
   return (
     <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center">
-        Login
+        Sign Up
       </h1>
       <p className="text-center pb-6">
-        or{" "}
-        <Link href="/signup" className="text-blue-600">
-          Register?
+        already have an account?{" "}
+        <Link href="/login" className="text-blue-600">
+          login
         </Link>
       </p>
+
       <form onSubmit={handleSubmit}>
+        <label
+          htmlFor="name"
+          className="block text-lg pb-2 leading-6 text-gray-900"
+        >
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          required
+          id="name"
+          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          placeholder="Enter your full name"
+          onChange={(e) => setName((e.target as HTMLInputElement).value)}
+        />
+
         <label
           htmlFor="email"
           className="block text-lg pb-2 leading-6 text-gray-900"
@@ -76,6 +100,22 @@ const LoginComponent = () => {
           className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
           placeholder="Enter your email"
           onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+        />
+
+        <label
+          htmlFor="phone"
+          className="block text-lg pb-2 leading-6 text-gray-900"
+        >
+          Phone Number
+        </label>
+        <input
+          type="text"
+          name="phone"
+          required
+          id="phone"
+          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          placeholder="Enter your Phone Number"
+          onChange={(e) => setPhone((e.target as HTMLInputElement).value)}
         />
 
         <label
@@ -104,6 +144,22 @@ const LoginComponent = () => {
             )}
           </a>
         </div>
+        <label
+          htmlFor="checkPassword"
+          className="block text-lg pb-2 leading-6 text-gray-900 pt-4"
+        >
+          Password
+        </label>
+        <input
+          type={passwordShown ? "text" : "password"}
+          name="checkPassword"
+          id="checkPassword"
+          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
+          placeholder="Enter your password"
+          onChange={(e) =>
+            SetCheckPassword((e.target as HTMLInputElement).value)
+          }
+        />
         {error && (
           <p className="text-red-600 my-5 rounded-lg p-5 text-center left-0 right-0 mx-auto w-max px-10 bg-red-200 absolute top-0 error text-nowrap">
             {error}
@@ -117,7 +173,7 @@ const LoginComponent = () => {
           {isLoading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-spin" size="lg" />
           ) : (
-            "Login"
+            "Sign Up"
           )}
         </button>
       </form>
@@ -125,4 +181,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default SignUp;
