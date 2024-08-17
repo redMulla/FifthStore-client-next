@@ -38,7 +38,7 @@ const SignUp = () => {
       return;
     }
     api
-      .post("users/", { email, password, phone, name })
+      .post("users", { email, password, phone, name })
       .then((res) => {
         console.log("Signup Successful:", res.data);
         setLoading(false);
@@ -58,7 +58,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl">
+    <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl min-h-max">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center">
         Sign Up
       </h1>
@@ -70,66 +70,63 @@ const SignUp = () => {
       </p>
 
       <form onSubmit={handleSubmit}>
-        <label
-          htmlFor="name"
-          className="block text-lg pb-2 leading-6 text-gray-900"
-        >
-          Name
+        <label htmlFor="name" className="block text-lg leading-6 text-gray-900">
+          Name<span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           name="name"
           required
           id="name"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
           placeholder="Enter your full name"
           onChange={(e) => setName((e.target as HTMLInputElement).value)}
         />
 
         <label
           htmlFor="email"
-          className="block text-lg pb-2 leading-6 text-gray-900"
+          className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
           id="email"
         >
-          Email
+          Email<span className="text-red-500">*</span>
         </label>
         <input
           type="email"
           name="email"
           id="email"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
           placeholder="Enter your email"
           onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
         />
 
         <label
           htmlFor="phone"
-          className="block text-lg pb-2 leading-6 text-gray-900"
+          className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Phone Number
+          Phone Number<span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           name="phone"
           required
           id="phone"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
           placeholder="Enter your Phone Number"
           onChange={(e) => setPhone((e.target as HTMLInputElement).value)}
         />
 
         <label
           htmlFor="password"
-          className="block text-lg pb-2 leading-6 text-gray-900 pt-4"
+          className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Password
+          Password<span className="text-red-500">*</span>
         </label>
         <div className="relative">
           <input
             type={passwordShown ? "text" : "password"}
             name="password"
             id="password"
-            className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
+            className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
             placeholder="Enter your password"
             onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
           />
@@ -146,15 +143,15 @@ const SignUp = () => {
         </div>
         <label
           htmlFor="checkPassword"
-          className="block text-lg pb-2 leading-6 text-gray-900 pt-4"
+          className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Password
+          Re-enter password<span className="text-red-500">*</span>
         </label>
         <input
           type={passwordShown ? "text" : "password"}
           name="checkPassword"
           id="checkPassword"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
+          className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
           placeholder="Enter your password"
           onChange={(e) =>
             SetCheckPassword((e.target as HTMLInputElement).value)
