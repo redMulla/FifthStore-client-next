@@ -96,7 +96,7 @@ const LoginComponent = () => {
           </a>
         </div>
         {error && (
-          <p className="text-red-600 my-5 rounded-lg p-5 text-center bg-red-200 absolute top-0 error text-nowrap">
+          <p className="text-red-600 my-5 rounded-lg p-5 text-center left-0 right-0 mx-auto w-max px-10 bg-red-200 absolute top-0 error text-nowrap">
             {error}
           </p>
         )}
