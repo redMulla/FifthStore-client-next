@@ -31,3 +31,24 @@ body {
     text-wrap: balance;
   }
 }
+
+.error {
+  transition: all 0.2s ease-in-out;
+  animation: scroll 0.3s;
+}
+
+.loginScreen {
+  max-width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes scroll {
+  from {
+    top: -20%;
+  }
+
+  to {
+    top: 0%;
+  }
+}
