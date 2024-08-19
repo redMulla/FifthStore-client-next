@@ -112,7 +112,7 @@ const LoginComponent = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="mt-5 bg-green-600 py-3 rounded-lg text-white hover:bg-green-700 w-full"
+          className="mt-5 bg-blue-500 py-3 rounded-lg text-white hover:bg-blue-600 w-full"
         >
           {isLoading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-spin" size="lg" />
