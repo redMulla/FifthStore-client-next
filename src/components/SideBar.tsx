@@ -7,7 +7,7 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="min-w-60 bg-white">
+    <div className="min-w-60 bg-white sticky">
       <ul className=" text-center px-2 mt-2">
         <Link href="/">
           <li
