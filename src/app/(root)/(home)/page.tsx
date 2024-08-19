@@ -20,8 +20,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-[100%] w-[100%] flex items-center justify-center bg-slate-100 text-black flex-col">
-      <h1 className="text-3xl font-bold text-blue-950 pb-6">Home Page App</h1>
+    <main className="h-[100%] w-[100%] flex items-center justify-center bg-blue-950 flex-col">
+      <h1 className="text-3xl font-bold pb-6">Home Page App</h1>
     </main>
   );
 }

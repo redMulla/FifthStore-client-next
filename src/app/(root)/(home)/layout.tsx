@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import SideBar from "@/components/SideBar";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -19,8 +20,8 @@ export default function HomeLayout({
       <body className={`${inter.className}`}>
         <div className="flex flex-col h-screen w-screen bg-gray-400">
           <NavBar />
-          <div className="flex-1 flex flex-row">
-            <section>sideBar</section>
+          <div className="flex-1 flex flex-row container max-2xl mx-auto">
+            <SideBar />
             <main className="w-[100%]">{children}</main>
           </div>
         </div>
