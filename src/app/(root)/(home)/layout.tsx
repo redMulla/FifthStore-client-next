@@ -18,7 +18,7 @@ export default function HomeLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <div className="flex flex-col h-screen w-screen bg-gray-400">
+        <div className="flex flex-col h-screen w-screen bg-blue-50">
           <NavBar />
           <div className="flex-1 flex flex-row container max-2xl mx-auto">
             <SideBar />
