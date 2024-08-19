@@ -71,7 +71,7 @@ const SignUp = () => {
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" className="block text-lg leading-6 text-gray-900">
-          Name<span className="text-red-500">*</span>
+          Name <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -88,7 +88,7 @@ const SignUp = () => {
           className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
           id="email"
         >
-          Email<span className="text-red-500">*</span>
+          Email <span className="text-red-500">*</span>
         </label>
         <input
           type="email"
@@ -103,7 +103,7 @@ const SignUp = () => {
           htmlFor="phone"
           className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Phone Number<span className="text-red-500">*</span>
+          Phone Number <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -119,7 +119,7 @@ const SignUp = () => {
           htmlFor="password"
           className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Password<span className="text-red-500">*</span>
+          Password <span className="text-red-500">*</span>
         </label>
         <div className="relative">
           <input
@@ -145,7 +145,7 @@ const SignUp = () => {
           htmlFor="checkPassword"
           className="block text-lg pb-1 leading-6 text-gray-900 pt-1"
         >
-          Re-enter password<span className="text-red-500">*</span>
+          Re-enter password <span className="text-red-500">*</span>
         </label>
         <input
           type={passwordShown ? "text" : "password"}
