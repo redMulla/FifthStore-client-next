@@ -17,12 +17,12 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} max-h-full`}>
         <div className="flex flex-col h-screen w-screen bg-blue-50">
           <NavBar />
-          <div className="flex-1 flex flex-row container max-2xl mx-auto">
+          <div className="flex-1 flex flex-row container max-2xl mx-auto max-h-full">
             <SideBar />
-            <main className="w-[100%]">{children}</main>
+            <main className="w-[100%] max-h-full">{children}</main>
           </div>
         </div>
       </body>

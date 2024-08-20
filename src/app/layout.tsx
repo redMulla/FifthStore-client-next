@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-full max-h-full overflow-hidden`}
+        className={`${inter.className} bg-blue-50`}
         suppressHydrationWarning
       >
         {children}

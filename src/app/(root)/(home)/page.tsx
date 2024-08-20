@@ -20,8 +20,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-[100%] w-[100%] flex items-center justify-center bg-blue-100 text-blue-950 flex-col">
-      <h1 className="text-3xl font-bold pb-6">Home Page App</h1>
-    </main>
+    <div className="h-[100%] w-[100%] grid grid-cols-3 gap-4">
+      <div className="col-span-2 flex items-center justify-center h-full w-full">
+        <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
+      </div>
+      <div className="bg-white border-s border-blue-950"></div>
+    </div>
   );
 }

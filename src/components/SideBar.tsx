@@ -7,15 +7,15 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="min-w-60 bg-white sticky">
-      <ul className=" text-center px-2 mt-2">
+    <div className="min-w-60 bg-blue-50">
+      <ul className=" text-center px-3 mt-3">
         <Link href="/">
           <li
             className={`${
               pathName === "/"
                 ? "bg-blue-500 text-white"
                 : "text-black hover:bg-blue-500 hover:text-white"
-            } p-4 border-black rounded-lg mb-2`}
+            } p-3 border-black rounded-lg mb-3`}
           >
             Dashboard
           </li>
@@ -26,7 +26,7 @@ const SideBar = () => {
               pathName === "/inventory"
                 ? "bg-blue-500 text-white"
                 : "text-black hover:bg-blue-500 hover:text-white"
-            } p-4 border-black rounded-lg mb-2`}
+            } p-3 border-black rounded-lg mb-3`}
           >
             Inventory
           </li>
@@ -37,7 +37,7 @@ const SideBar = () => {
               pathName === "/sales"
                 ? "bg-blue-500 text-white"
                 : "text-black hover:bg-blue-500 hover:text-white"
-            } p-4 border-black rounded-lg mb-2`}
+            } p-3 border-black rounded-lg mb-3`}
           >
             Sales Orders
           </li>
@@ -48,7 +48,7 @@ const SideBar = () => {
               pathName === "/suppliers"
                 ? "bg-blue-500 text-white"
                 : "text-black hover:bg-blue-500 hover:text-white"
-            } p-4 border-black rounded-lg mb-2`}
+            } p-3 border-black rounded-lg mb-3`}
           >
             Suppliers
           </li>
@@ -59,7 +59,7 @@ const SideBar = () => {
               pathName === "/reports"
                 ? "bg-blue-500 text-white"
                 : "text-black hover:bg-blue-500 hover:text-white"
-            } p-4 border-black rounded-lg mb-2`}
+            } p-3 border-black rounded-lg mb-3`}
           >
             Reports
           </li>

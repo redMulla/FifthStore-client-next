@@ -1,12 +1,12 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="flex sticky justify-center bg-white h-14 border-b-2 border-black text-gray-900">
-      <div className="flex gap-2 flex-row justify-between max-h-[100%] container max-2xl px-6">
+    <nav className="flex justify-center bg-white h-14 border-b-2 border-blue-900 shadow text-gray-900">
+      <div className="flex gap-4 flex-row justify-between max-h-[100%] container max-2xl px-6">
         <div className="max-h-[100%] flex items-center">
           {/* <Image src={"/images/Logo.png"} alt="logo" width={} /> */}
           <img
@@ -15,15 +15,21 @@ const NavBar = () => {
             className="max-h-[80%] rounded-lg"
           />
         </div>
-        <div className="h-[100%] flex items-center relative">
-          <input
-            type="text"
-            placeholder="search products"
-            className="w-[200px] rounded-lg px-2 py-1 pe-8 h-8 border-0 ring-1 ring-inset ring-gray-500 hover:bg-gray-100 placeholder:text-gray-300 focus:outline-none"
-          />
-          <a className="absolute right-3 text-gray-400 cursor-pointer">
-            <FontAwesomeIcon icon={faSearch} />
-          </a>
+        <div className="flex flex-row gap-2">
+          <div className="h-[100%] flex items-center relative">
+            <input
+              type="text"
+              placeholder="search products"
+              className="w-[200px] rounded-lg px-2 py-1 pe-8 h-8 border-0 ring-1 ring-inset ring-gray-500 hover:bg-gray-100 placeholder:text-gray-300 focus:outline-none"
+            />
+            <a className="absolute right-3 text-gray-400 cursor-pointer">
+              <FontAwesomeIcon icon={faSearch} />
+            </a>
+          </div>
+
+          <div className="h-full ms-2 flex items-center text-gray-500 rotate-12 text-2xl cursor-pointer hover:text-gray-600">
+            <FontAwesomeIcon icon={faBell} />
+          </div>
         </div>
       </div>
     </nav>
