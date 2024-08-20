@@ -8,7 +8,7 @@ const SideBar = () => {
 
   return (
     <div className="min-w-60 bg-blue-50">
-      <ul className=" text-center px-3 mt-3">
+      <ul className=" text-center px-3 mt-3 font-semibold">
         <Link href="/">
           <li
             className={`${

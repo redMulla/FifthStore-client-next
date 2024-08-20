@@ -21,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-[100%] w-[100%] grid grid-cols-3 gap-4">
+    <div className="h-[100%] w-[100%] grid grid-cols-3">
       <div className="col-span-2 h-full w-full">
         <SalesSummary />
         <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>

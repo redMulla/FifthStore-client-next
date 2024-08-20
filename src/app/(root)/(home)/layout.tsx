@@ -1,9 +1,9 @@
 import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Fifth Store",
@@ -17,7 +17,7 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-h-full`}>
+      <body className={`${montserrat.className} max-h-full`}>
         <div className="flex flex-col h-screen w-screen bg-blue-50">
           <NavBar />
           <div className="flex-1 flex flex-row container max-2xl mx-auto max-h-full">
