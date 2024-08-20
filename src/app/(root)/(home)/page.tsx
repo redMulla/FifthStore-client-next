@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className="h-[100%] w-[100%] grid grid-cols-3">
-      <div className="col-span-2 h-full w-full">
+      <div className="col-span-2 h-full w-full bg-white">
         <SalesSummary />
         <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
       </div>

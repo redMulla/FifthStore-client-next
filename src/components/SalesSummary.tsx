@@ -1,21 +1,52 @@
-import { faChartColumn } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartColumn,
+  faCalendarDays,
+  faDollarSign,
+  faBagShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import SalesCard from "./SalesCard";
+
+const salesArr = [
+  {
+    icon: faChartColumn,
+    title: "Today's Sales",
+    value: "143.3k",
+    color: "red",
+  },
+  {
+    icon: faCalendarDays,
+    title: "Yearly Total Sales",
+    value: "$ 250,423",
+    color: "blue",
+  },
+  {
+    icon: faDollarSign,
+    title: "Net Income",
+    value: "$ 68.9k",
+    color: "red",
+  },
+  {
+    icon: faBagShopping,
+    title: "Products",
+    value: "343",
+    color: "blue",
+  },
+];
 
 const SalesSummary = () => {
   return (
-    <div className="max-w-full overflow-x-auto h-44 flex flex-row flex-nowrap items-center justify-around gap-3">
+    <div className="max-w-full bg-blue-50 overflow-x-auto h-44 flex flex-row flex-nowrap items-center justify-around gap-3">
       {/* CARD SECTION */}
-      <div className="px-6 py-4 flex flex-row flex-nowrap bg-white rounded-lg items-center">
-        <div className="h-10 w-10 rounded-full text-red-600 bg-red-100 flex items-center justify-center">
-          <FontAwesomeIcon icon={faChartColumn} />
-        </div>
-        <div className=" flex flex-col ms-3 gap-1">
-          <span className="text-gray-700 font-semibold">143.3k</span>
-
-          <span className="text-gray-500 text-sm">Today’s Sale</span>
-        </div>
-      </div>
+      {salesArr.map((item, index) => (
+        <SalesCard
+          key={index}
+          icon={item.icon}
+          title={item.title}
+          value={item.value}
+          color={item.color}
+        />
+      ))}
     </div>
   );
 };
