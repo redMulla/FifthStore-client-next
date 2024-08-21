@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
+import './globals.css';
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Fifth Store",
-  description: "Best Stock and Inventory Management app at a lower price",
+  title: 'Fifth Store',
+  description: 'Best Stock and Inventory Management app at a lower price',
 };
 
 export default function RootLayout({
