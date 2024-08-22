@@ -15,8 +15,8 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="min-w-60 bg-blue-50">
-      <ul className=" text-center px-3 mt-3 font-semibold">
+    <div className="w-16 lg:min-w-60 bg-blue-50">
+      <ul className=" text-center px-1 lg:px-3 mt-3 font-semibold">
         <Link href="/">
           <li
             className={`${
@@ -28,7 +28,7 @@ const SideBar = () => {
             <span>
               <FontAwesomeIcon icon={faGauge} />{' '}
             </span>
-            Dashboard
+            <span className="hidden lg:inline">Dashboard</span>
           </li>
         </Link>
         <Link href="/inventory">
@@ -42,7 +42,7 @@ const SideBar = () => {
             <span>
               <FontAwesomeIcon icon={faBoxesStacked} />{' '}
             </span>
-            Inventory
+            <span className="hidden lg:inline">Inventory</span>
           </li>
         </Link>
         <Link href="/sales">
@@ -56,7 +56,7 @@ const SideBar = () => {
             <span>
               <FontAwesomeIcon icon={faShoppingBag} />{' '}
             </span>
-            Sales Orders
+            <span className="hidden lg:inline">Sales Orders</span>
           </li>
         </Link>
         <Link href="/suppliers">
@@ -70,7 +70,7 @@ const SideBar = () => {
             <span>
               <FontAwesomeIcon icon={faTruck} />{' '}
             </span>
-            Suppliers
+            <span className="hidden lg:inline">Suppliers</span>
           </li>
         </Link>
         <Link href="/reports">
@@ -84,7 +84,7 @@ const SideBar = () => {
             <span>
               <FontAwesomeIcon icon={faPieChart} />{' '}
             </span>
-            Reports
+            <span className="hidden lg:inline">Reports</span>
           </li>
         </Link>
       </ul>

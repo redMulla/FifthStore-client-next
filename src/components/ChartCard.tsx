@@ -79,10 +79,11 @@ const ChartCard = () => {
   };
 
   return (
-    <div className="max-w-full px-5 text-black pt-4 border-b-2 border-blue-50">
+    <div className="max-w-full px-5 overflow-auto text-black pt-4 border-b-2 border-blue-50">
       <Chart
         options={chartOptions}
         height={350}
+        width={500}
         series={chartOptions.series}
         type="bar"
       />
