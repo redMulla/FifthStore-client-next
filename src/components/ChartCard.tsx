@@ -80,13 +80,14 @@ const ChartCard = () => {
 
   return (
     <div className="max-w-full px-5 overflow-auto text-black pt-4 border-b-2 border-blue-50">
-      <Chart
-        options={chartOptions}
-        height={350}
-        width={500}
-        series={chartOptions.series}
-        type="bar"
-      />
+      <div className="min-w-96 w-full h-60 md:h-96">
+        <Chart
+          options={chartOptions}
+          height={'95%'}
+          series={chartOptions.series}
+          type="bar"
+        />
+      </div>
     </div>
   );
 };
