@@ -28,7 +28,20 @@ export default function Home() {
         <ChartCard />
         <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
       </div>
-      <div className="bg-white border-s border-blue-950"></div>
+      <div className="bg-white border-s-2 border-blue-50">
+        <div className="h-28 w-full border-b border-blue-100 px-8 flex justify-center items-center flex-row">
+          <div className="h-12 w-12 overflow-hidden rounded-full">
+            <img
+              src="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="profile"
+              className="size-full"
+            />
+          </div>
+          <div className="flex-grow flex ms-3">
+            <p className="font-bold text-blue-950">Bryan Doe</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

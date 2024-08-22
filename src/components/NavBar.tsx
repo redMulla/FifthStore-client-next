@@ -1,7 +1,7 @@
-import { faBell, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
-import React from "react";
+import { faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import React from 'react';
 
 const NavBar = () => {
   return (
@@ -19,7 +19,7 @@ const NavBar = () => {
           <div className="h-[100%] flex items-center relative">
             <input
               type="text"
-              placeholder="search products"
+              placeholder="search"
               className="w-[200px] rounded-lg px-2 py-1 pe-8 h-8 border-0 ring-1 ring-inset ring-gray-500 hover:bg-gray-100 placeholder:text-gray-300 focus:outline-none"
             />
             <a className="absolute right-3 text-gray-400 cursor-pointer">
@@ -27,8 +27,9 @@ const NavBar = () => {
             </a>
           </div>
 
-          <div className="h-full ms-2 flex items-center text-gray-500 rotate-12 text-2xl cursor-pointer hover:text-gray-600">
+          <div className="h-full ms-2 flex items-center relative text-blue-950 rotate-12 text-2xl cursor-pointer hover:text-blue-900">
             <FontAwesomeIcon icon={faBell} />
+            <div className="h-3 w-3 rounded-full bg-red-500 absolute top-3 -right-1"></div>
           </div>
         </div>
       </div>
