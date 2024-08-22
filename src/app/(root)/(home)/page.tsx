@@ -4,13 +4,22 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { useRouter } from 'next/navigation';
 import { redirect } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import SalesSummary from '@/components/SalesSummary';
 import ChartCard from '@/components/ChartCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 config.autoAddCss = false;
 
 export default function Home() {
+  const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
+
+  const showMenuFalse = () => {
+    setTimeout(() => {
+      setShowMenu(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
@@ -21,25 +30,57 @@ export default function Home() {
     }
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem('jwtToken');
+    router.push('/login');
+  };
+
   return (
-    <div className="h-[100%] w-[100%] grid grid-cols-3">
-      <div className="col-span-2 h-full w-full bg-white">
+    <div className="h-[100%] w-[100%] grid grid-cols-4">
+      <div className=" col-span-4 md:col-span-3 h-full w-full bg-white">
         <SalesSummary />
         <ChartCard />
         <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
       </div>
-      <div className="bg-white border-s-2 border-blue-50">
-        <div className="h-28 w-full border-b border-blue-100 px-8 flex justify-center items-center flex-row">
-          <div className="h-12 w-12 overflow-hidden rounded-full">
+      <div className="bg-white border-s-2 border-blue-50 hidden md:inline col-span-1">
+        <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
+          <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
             <img
               src="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="profile"
               className="size-full"
             />
           </div>
-          <div className="flex-grow flex flex-col ms-4">
-            <p className="font-bold text-lg text-blue-950">Bryan Doe</p>
-            <p className="text-blue-500 text-sm">Admin</p>
+          <div className="flex-grow flex flex-col ms-2 xl:ms-4">
+            <p className="font-bold xl:text-lg text-blue-950 text-nowrap">
+              Bryan Doe
+            </p>
+            <p className="text-blue-500 text-xs xl:text-sm">Admin</p>
+          </div>
+          <div
+            onMouseEnter={() => setShowMenu(true)}
+            onMouseLeave={showMenuFalse}
+            className="text-blue-950 border px-2 py-1 relative rounded hover:bg-gray-100 cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faEllipsisV} />
+            {showMenu && (
+              <div className="absolute shadow-lg rounded-md overflow-hidden h-28 w-36 top-3 -left-36 bg-gray-100">
+                <ul className="w-full text-center h-full flex flex-col justify-between ">
+                  <li className="border-b h-full flex justify-center items-center hover:bg-gray-200">
+                    Profile
+                  </li>
+                  <li className="border-b h-full flex justify-center items-center hover:bg-gray-200">
+                    Settings
+                  </li>
+                  <li
+                    onClick={logout}
+                    className="border-b h-full flex justify-center items-center hover:bg-gray-200"
+                  >
+                    Logout
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

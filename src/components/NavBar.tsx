@@ -1,4 +1,9 @@
-import { faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faBell,
+  faHamburger,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import React from 'react';
@@ -16,7 +21,7 @@ const NavBar = () => {
           />
         </div>
         <div className="flex flex-row gap-2">
-          <div className="h-[100%] flex items-center relative">
+          <div className="h-[100%] hidden lg:flex items-center relative">
             <input
               type="text"
               placeholder="search"
@@ -30,6 +35,9 @@ const NavBar = () => {
           <div className="h-full ms-2 flex items-center relative text-blue-950 rotate-12 text-2xl cursor-pointer hover:text-blue-900">
             <FontAwesomeIcon icon={faBell} />
             <div className="h-3 w-3 rounded-full bg-red-500 absolute top-3 -right-1"></div>
+          </div>
+          <div className="lg:hidden flex h-full items-center ms-2 text-blue-950">
+            <FontAwesomeIcon icon={faBars} size="lg" />
           </div>
         </div>
       </div>

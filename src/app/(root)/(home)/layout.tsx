@@ -19,10 +19,14 @@ export default function HomeLayout({
     <html lang="en">
       <body className={`${montserrat.className} max-h-full`}>
         <div className="flex flex-col h-screen w-screen bg-blue-50">
-          <NavBar />
-          <div className="flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-full">
-            <SideBar />
-            <main className="w-[100%] max-h-full">{children}</main>
+          <div className="fixed w-full">
+            <NavBar />
+          </div>
+          <div className="pt-14 flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-full">
+            <div className="fixed">
+              <SideBar />
+            </div>
+            <main className="w-full max-h-full ms-16 lg:ms-60">{children}</main>
           </div>
         </div>
       </body>
