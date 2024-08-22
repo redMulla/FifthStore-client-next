@@ -37,8 +37,9 @@ export default function Home() {
               className="size-full"
             />
           </div>
-          <div className="flex-grow flex ms-3">
-            <p className="font-bold text-blue-950">Bryan Doe</p>
+          <div className="flex-grow flex flex-col ms-4">
+            <p className="font-bold text-lg text-blue-950">Bryan Doe</p>
+            <p className="text-blue-500 text-sm">Admin</p>
           </div>
         </div>
       </div>
