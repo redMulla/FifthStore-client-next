@@ -26,7 +26,9 @@ export default function HomeLayout({
             <div className="fixed">
               <SideBar />
             </div>
-            <main className="w-full max-h-full ms-16 lg:ms-60">{children}</main>
+            <main className="w-full max-h-full ms-16 lg:ms-60 overflow-auto">
+              {children}
+            </main>
           </div>
         </div>
       </body>

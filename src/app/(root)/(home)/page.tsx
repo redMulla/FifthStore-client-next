@@ -15,12 +15,6 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
 
-  const showMenuFalse = () => {
-    setTimeout(() => {
-      setShowMenu(false);
-    }, 1000);
-  };
-
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {
@@ -36,13 +30,13 @@ export default function Home() {
   };
 
   return (
-    <div className="h-[100%] w-[100%] grid grid-cols-4">
+    <div className="h-[100%] max-w-[100%] grid grid-cols-4">
       <div className=" col-span-4 md:col-span-3 h-full w-full bg-white">
         <SalesSummary />
         <ChartCard />
         <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
       </div>
-      <div className="bg-white border-s-2 border-blue-50 hidden md:inline col-span-1">
+      <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1">
         <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
           <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
             <img
@@ -58,9 +52,10 @@ export default function Home() {
             <p className="text-blue-500 text-xs xl:text-sm">Admin</p>
           </div>
           <div
-            onMouseEnter={() => setShowMenu(true)}
-            onMouseLeave={showMenuFalse}
-            className="text-blue-950 border px-2 py-1 relative rounded hover:bg-gray-100 cursor-pointer"
+            onClick={() => setShowMenu(!showMenu)}
+            className={`text-blue-950 border px-2 py-1 relative rounded ${
+              showMenu ? '' : 'hover:bg-gray-100'
+            } cursor-pointer`}
           >
             <FontAwesomeIcon icon={faEllipsisV} />
             {showMenu && (
