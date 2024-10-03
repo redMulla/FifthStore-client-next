@@ -5,6 +5,7 @@ export interface ProductModel {
   category: string;
   price: number;
   currency: string;
+  img: string;
 }
 
 export const products = [
@@ -15,6 +16,7 @@ export const products = [
     category: 'Laptop',
     price: 2999,
     currency: '$',
+    img: 'https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111901_mbp16-gray.png',
   },
   {
     id: 2,

@@ -15,14 +15,14 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="w-16 lg:min-w-60 bg-blue-50">
+    <div className="w-16 lg:min-w-60 bg-blue-50 dark:bg-gray-800">
       <ul className=" text-center px-1 lg:px-3 mt-3 font-semibold">
         <Link href="/">
           <li
             className={`${
               pathName === '/'
                 ? 'bg-blue-500 text-white'
-                : 'text-black hover:bg-blue-500 hover:text-white'
+                : 'text-black hover:bg-blue-500 hover:text-white  dark:text-blue-50'
             } p-3 border-black rounded-lg mb-3`}
           >
             <span>
@@ -36,7 +36,7 @@ const SideBar = () => {
             className={`${
               pathName === '/inventory'
                 ? 'bg-blue-500 text-white'
-                : 'text-black hover:bg-blue-500 hover:text-white'
+                : 'text-black hover:bg-blue-500 hover:text-white  dark:text-blue-50'
             } p-3 border-black rounded-lg mb-3`}
           >
             <span>
@@ -50,7 +50,7 @@ const SideBar = () => {
             className={`${
               pathName === '/sales'
                 ? 'bg-blue-500 text-white'
-                : 'text-black hover:bg-blue-500 hover:text-white'
+                : 'text-black hover:bg-blue-500 hover:text-white  dark:text-blue-50'
             } p-3 border-black rounded-lg mb-3`}
           >
             <span>
@@ -64,7 +64,7 @@ const SideBar = () => {
             className={`${
               pathName === '/suppliers'
                 ? 'bg-blue-500 text-white'
-                : 'text-black hover:bg-blue-500 hover:text-white'
+                : 'text-black hover:bg-blue-500 hover:text-white dark:text-blue-50'
             } p-3 border-black rounded-lg mb-3`}
           >
             <span>
@@ -78,7 +78,7 @@ const SideBar = () => {
             className={`${
               pathName === '/reports'
                 ? 'bg-blue-500 text-white'
-                : 'text-black hover:bg-blue-500 hover:text-white'
+                : 'text-black hover:bg-blue-500 hover:text-white dark:text-blue-50'
             } p-3 border-black rounded-lg mb-3`}
           >
             <span>

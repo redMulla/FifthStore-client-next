@@ -42,7 +42,8 @@ const ProductsTable = () => {
               <Table.Cell>{product.color}</Table.Cell>
               <Table.Cell>{product.category}</Table.Cell>
               <Table.Cell>
-                {product.price} {product.currency}
+                {product.price}
+                {product.currency}
               </Table.Cell>
               <Table.Cell>
                 <a
@@ -65,13 +66,28 @@ const ProductsTable = () => {
         <Modal.Header>Product Details</Modal.Header>
         <Modal.Body>
           {selectedProduct && (
-            <div className="">
-              <p>Name: {selectedProduct.name}</p>
-              <p>Color: {selectedProduct.color}</p>
-              <p>Category: {selectedProduct.category}</p>
-              <p>
-                Price: {selectedProduct.price} {selectedProduct.currency}
-              </p>
+            <div className="flex flex-row justify-center gap-10">
+              <div className="max-w-40 max-h-40 rounded-sm overflow-hidden">
+                <img className="size-auto" src={selectedProduct.img} alt="" />
+              </div>
+              <div className="">
+                <p>
+                  <span className="font-bold">Name:</span>{' '}
+                  {selectedProduct.name}
+                </p>
+                <p>
+                  <span className="font-bold">Color:</span>{' '}
+                  {selectedProduct.color}
+                </p>
+                <p>
+                  <span className="font-bold">Category:</span>{' '}
+                  {selectedProduct.category}
+                </p>
+                <p>
+                  <span className="font-bold">Price:</span>{' '}
+                  {selectedProduct.price} {selectedProduct.currency}
+                </p>
+              </div>
             </div>
           )}
         </Modal.Body>

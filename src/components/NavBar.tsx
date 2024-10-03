@@ -11,7 +11,7 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-center bg-white h-14 border-b-2 border-blue-900 shadow text-gray-900">
+    <nav className="flex justify-center bg-white h-14 border-b-2 dark:bg-gray-900 border-blue-900 shadow text-gray-900">
       <div className="flex gap-4 flex-row justify-between max-h-[100%] mx-auto w-[1536px] max-w-[1536px] px-6">
         <div className="max-h-[100%] flex items-center">
           {/* <Image src={"/images/Logo.png"} alt="logo" width={} /> */}
