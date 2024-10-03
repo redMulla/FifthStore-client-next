@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
+import NextTopLoader from 'nextjs-toploader';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
         className={`${montserrat.className} bg-blue-50`}
         suppressHydrationWarning
       >
+        <NextTopLoader color="#3ff845" height={5} showSpinner={false} />
         {children}
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </html>
   );

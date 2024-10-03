@@ -1,24 +1,24 @@
-"use client";
-import api from "@/api";
+'use client';
+import api from '@/api';
 import {
   faEye,
   faEyeSlash,
   faSpinner,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/navigation";
-import React, { FormEvent, useState } from "react";
-import Link from "next/link";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FormEvent, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'nextjs-toploader/app';
 
 const SignUp = () => {
   const router = useRouter();
 
   const [passwordShown, setPasswordShown] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [checkPassword, SetCheckPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [checkPassword, SetCheckPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,29 +27,29 @@ const SignUp = () => {
     setLoading(true);
     setError(null);
     if (!email || !password || !name || !phone || !checkPassword) {
-      setError("Please fill in all fields");
+      setError('Please fill in all fields');
       setLoading(false);
       return;
     }
 
     if (password !== checkPassword) {
-      setError("Passwords do not match");
+      setError('Passwords do not match');
       setLoading(false);
       return;
     }
     api
-      .post("users", { email, password, phone, name })
+      .post('users', { email, password, phone, name })
       .then((res) => {
-        console.log("Signup Successful:", res.data);
+        console.log('Signup Successful:', res.data);
         setLoading(false);
-        router.push("/login");
+        router.push('/login');
       })
       .catch((err) => {
         const { status, data } = err.response;
 
         setError(`${status}: ${data.message}`);
         setLoading(false);
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }
 
@@ -63,7 +63,7 @@ const SignUp = () => {
         Sign Up
       </h1>
       <p className="text-center pb-6">
-        already have an account?{" "}
+        already have an account?{' '}
         <Link href="/login" className="text-blue-600">
           login
         </Link>
@@ -123,7 +123,7 @@ const SignUp = () => {
         </label>
         <div className="relative">
           <input
-            type={passwordShown ? "text" : "password"}
+            type={passwordShown ? 'text' : 'password'}
             name="password"
             id="password"
             className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
@@ -148,7 +148,7 @@ const SignUp = () => {
           Re-enter password <span className="text-red-500">*</span>
         </label>
         <input
-          type={passwordShown ? "text" : "password"}
+          type={passwordShown ? 'text' : 'password'}
           name="checkPassword"
           id="checkPassword"
           className="min-w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
@@ -170,7 +170,7 @@ const SignUp = () => {
           {isLoading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-spin" size="lg" />
           ) : (
-            "Sign Up"
+            'Sign Up'
           )}
         </button>
       </form>

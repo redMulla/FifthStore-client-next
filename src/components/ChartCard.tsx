@@ -83,13 +83,16 @@ const ChartCard = () => {
 
   return (
     <div className="max-w-full px-5 overflow-auto text-black pt-4 border-b-2 border-blue-50">
-      <div className="min-w-96 w-full h-60 md:h-96">
+      <div className="min-w-96 w-full h-60 md:h-96 relative">
         <Chart
           options={chartOptions}
           height={'95%'}
           series={chartOptions.series}
           type="bar"
         />
+        <div className="absolute top-0 text-white rounded-md cursor-pointer py-1 px-4 bg-blue-600 hover:bg-blue-700 flex justify-center">
+          <span>More</span>
+        </div>
       </div>
     </div>
   );

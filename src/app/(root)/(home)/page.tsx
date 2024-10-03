@@ -2,13 +2,13 @@
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import { useRouter } from 'next/navigation';
 import { redirect } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SalesSummary from '@/components/SalesSummary';
 import ChartCard from '@/components/ChartCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'nextjs-toploader/app';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -77,6 +77,11 @@ export default function Home() {
               </div>
             )}
           </div>
+        </div>
+        <div className="borde-b border-blue-100 px-4 xl:px-8 pt-4">
+          <p className="font-bold xl:text-lg text-blue-950 text-nowrap">
+            Quick Actions
+          </p>
         </div>
       </div>
     </div>

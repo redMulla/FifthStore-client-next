@@ -1,19 +1,19 @@
-"use client";
-import api from "@/api";
+'use client';
+import api from '@/api';
 import {
   faEye,
   faEyeSlash,
   faSpinner,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/navigation";
-import React, { FormEvent, useState } from "react";
-import Link from "next/link";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FormEvent, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'nextjs-toploader/app';
 
 const LoginComponent = () => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,27 +23,27 @@ const LoginComponent = () => {
     setLoading(true);
     setError(null);
     if (!email || !password) {
-      setError("Please fill in all fields");
+      setError('Please fill in all fields');
       setLoading(false);
       return;
     }
     api
-      .post("auth/login/", { email, password })
+      .post('auth/login/', { email, password })
       .then((res) => {
-        console.log("Login Successful:", res.data);
+        console.log('Login Successful:', res.data);
 
         const accessToken = res.data.accessToken;
 
-        localStorage.setItem("jwtToken", accessToken);
+        localStorage.setItem('jwtToken', accessToken);
         setLoading(false);
-        router.push("/");
+        router.push('/');
       })
       .catch((err) => {
         const { status, data } = err.response;
 
         setError(`${status}: ${data.message}`);
         setLoading(false);
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }
 
@@ -56,7 +56,7 @@ const LoginComponent = () => {
         Login
       </h1>
       <p className="text-center pb-6">
-        or{" "}
+        or{' '}
         <Link href="/signup" className="text-blue-600">
           Register?
         </Link>
@@ -86,7 +86,7 @@ const LoginComponent = () => {
         </label>
         <div className="relative">
           <input
-            type={passwordShown ? "text" : "password"}
+            type={passwordShown ? 'text' : 'password'}
             name="password"
             id="password"
             className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
@@ -117,7 +117,7 @@ const LoginComponent = () => {
           {isLoading ? (
             <FontAwesomeIcon icon={faSpinner} className="fa-spin" size="lg" />
           ) : (
-            "Login"
+            'Login'
           )}
         </button>
       </form>
