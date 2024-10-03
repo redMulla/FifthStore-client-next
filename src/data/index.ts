@@ -1,3 +1,12 @@
+export interface ProductModel {
+  id: number;
+  name: string;
+  color: string;
+  category: string;
+  price: number;
+  currency: string;
+}
+
 export const products = [
   {
     id: 1,

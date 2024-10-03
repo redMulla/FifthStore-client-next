@@ -1,9 +1,23 @@
-import { Table } from 'flowbite-react';
-import React from 'react';
+import { Modal, Table } from 'flowbite-react';
+import React, { useState } from 'react';
 
-import { products } from '@/data';
+import { ProductModel, products } from '@/data';
 
 const ProductsTable = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<ProductModel | null>(
+    null,
+  );
+
+  const handleOpenModal = (product: any) => {
+    setSelectedProduct(product);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    setIsOpen(false);
+  };
   return (
     <div className="p-5">
       <Table className="font-primary">
@@ -19,7 +33,10 @@ const ProductsTable = () => {
         <Table.Body className="divide-y">
           {products.map((product) => (
             <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+              <Table.Cell
+                className="whitespace-nowrap font-medium text-gray-900 dark:text-white dark:hover:text-blue-400 hover:text-blue-500 cursor-pointer"
+                onClick={() => handleOpenModal(product)}
+              >
                 {product.name}
               </Table.Cell>
               <Table.Cell>{product.color}</Table.Cell>
@@ -39,6 +56,35 @@ const ProductsTable = () => {
           ))}
         </Table.Body>
       </Table>
+
+      <Modal
+        show={isOpen}
+        onClose={handleCloseModal}
+        className="text-blue-950 dark:text-blue-200"
+      >
+        <Modal.Header>Product Details</Modal.Header>
+        <Modal.Body>
+          {selectedProduct && (
+            <div className="">
+              <p>Name: {selectedProduct.name}</p>
+              <p>Color: {selectedProduct.color}</p>
+              <p>Category: {selectedProduct.category}</p>
+              <p>
+                Price: {selectedProduct.price} {selectedProduct.currency}
+              </p>
+            </div>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn btn-outline-secondary font-bold bg-blue-200 px-6 py-2 rounded-lg hover:bg-blue-300 dark:bg-blue-800 dark:hover:bg-blue-900"
+            onClick={handleCloseModal}
+          >
+            Close
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
