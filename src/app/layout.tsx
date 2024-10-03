@@ -21,9 +21,8 @@ export default function RootLayout({
         className={`${montserrat.className} bg-blue-50`}
         suppressHydrationWarning
       >
-        <NextTopLoader color="#3ff845" height={5} showSpinner={false} />
+        <NextTopLoader color="#03e8fc" height={4} showSpinner={false} />
         {children}
-        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </html>
   );

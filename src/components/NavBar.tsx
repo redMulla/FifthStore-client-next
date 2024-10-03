@@ -5,6 +5,7 @@ import {
   faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { DarkThemeToggle, Flowbite } from 'flowbite-react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -39,6 +40,9 @@ const NavBar = () => {
           <div className="lg:hidden flex h-full items-center ms-2 text-blue-950">
             <FontAwesomeIcon icon={faBars} size="lg" />
           </div>
+          <Flowbite>
+            <DarkThemeToggle />
+          </Flowbite>
         </div>
       </div>
     </nav>

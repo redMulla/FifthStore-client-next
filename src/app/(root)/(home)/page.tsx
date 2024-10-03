@@ -9,6 +9,7 @@ import ChartCard from '@/components/ChartCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'nextjs-toploader/app';
+import ProductsTable from '@/components/ProductsTable';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -31,11 +32,13 @@ export default function Home() {
 
   return (
     <div className="h-[100%] max-w-[100%] grid grid-cols-4">
-      <div className=" col-span-4 md:col-span-3 h-full w-full bg-white">
+      <div className=" col-span-4 md:col-span-3 h-full w-full bg-white max-h-[100vh] overflow-y-auto">
         <SalesSummary />
         <ChartCard />
-        <h1 className="text-3xl font-bold text-blue-950">Home Page App</h1>
+        <ProductsTable />
       </div>
+
+      {/* Sidebar */}
       <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1">
         <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
           <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">

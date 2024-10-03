@@ -2,6 +2,7 @@ import React from 'react';
 // import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import dynamic from 'next/dynamic';
+import { Button, Tooltip } from 'flowbite-react';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -90,9 +91,11 @@ const ChartCard = () => {
           series={chartOptions.series}
           type="bar"
         />
-        <div className="absolute top-0 text-white rounded-md cursor-pointer py-1 px-4 bg-blue-600 hover:bg-blue-700 flex justify-center">
-          <span>More</span>
-        </div>
+        <Button className="absolute top-0 text-white bg-blue-600 hover:bg-blue-700 px-3">
+          <Tooltip content="Stats">
+            <span className="size-full">More</span>
+          </Tooltip>
+        </Button>
       </div>
     </div>
   );

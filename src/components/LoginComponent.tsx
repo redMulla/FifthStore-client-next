@@ -6,7 +6,7 @@ import {
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'nextjs-toploader/app';
 
@@ -16,6 +16,18 @@ const LoginComponent = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      setShowErrorMessage(true);
+      const timeoutId = setTimeout(() => {
+        setShowErrorMessage(false);
+      }, 3000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [error]);
 
   const router = useRouter();
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -104,7 +116,7 @@ const LoginComponent = () => {
             )}
           </a>
         </div>
-        {error && (
+        {showErrorMessage && !isLoading && (
           <p className="text-red-600 my-5 rounded-lg p-5 text-center left-0 right-0 mx-auto w-max px-10 bg-red-200 absolute top-0 error text-nowrap">
             {error}
           </p>
