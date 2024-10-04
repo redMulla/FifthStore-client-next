@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className="h-[100%] max-w-[100%] grid grid-cols-4">
-      <div className=" col-span-4 md:col-span-3 h-full w-full bg-white max-h-[100vh] overflow-y-auto">
+      <div className=" col-span-4 md:col-span-3 h-full w-full bg-white dark:bg-gray-700 max-h-[100vh] overflow-y-auto">
         <SalesSummary />
         <ChartCard />
         <ProductsTable />

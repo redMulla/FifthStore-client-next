@@ -25,6 +25,8 @@ const ChartCard = () => {
     chart: {
       type: 'bar',
       height: 350,
+      foreColor: '#fff',
+      background: '#283d66',
     },
     title: {
       text: 'Financial Performance',
@@ -83,7 +85,7 @@ const ChartCard = () => {
   };
 
   return (
-    <div className="max-w-full px-5 overflow-auto text-black pt-4 border-b-2 border-blue-50">
+    <div className="max-w-full px-5 overflow-auto bg-[#283d66] text-black dark:text-white pt-4 border-b-2 border-blue-50">
       <div className="min-w-96 w-full h-60 md:h-96 relative">
         <Chart
           options={chartOptions}
