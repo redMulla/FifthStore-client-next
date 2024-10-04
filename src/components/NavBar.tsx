@@ -26,7 +26,7 @@ const NavBar = () => {
             <input
               type="text"
               placeholder="search"
-              className="w-[200px] rounded-lg px-2 py-1 pe-8 h-8 border-0 ring-1 ring-inset ring-gray-500 hover:bg-gray-100 placeholder:text-gray-300 focus:outline-none"
+              className="w-[200px] rounded-lg px-2 py-1 pe-8 h-8 border-0 ring-1 ring-inset ring-gray-500 dark:bg-gray-800 dark:text-gray-50 hover:bg-gray-100 placeholder:text-gray-300 focus:outline-none"
             />
             <a className="absolute right-3 text-gray-400 cursor-pointer">
               <FontAwesomeIcon icon={faSearch} />

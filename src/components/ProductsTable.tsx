@@ -2,6 +2,8 @@ import { Modal, Table } from 'flowbite-react';
 import React, { useState } from 'react';
 
 import { ProductModel, products } from '@/data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMountainSun } from '@fortawesome/free-solid-svg-icons';
 
 const ProductsTable = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,8 +72,12 @@ const ProductsTable = () => {
         <Modal.Body>
           {selectedProduct && (
             <div className="flex flex-row justify-center gap-10">
-              <div className="max-w-40 max-h-40 rounded-sm overflow-hidden">
-                <img className="size-auto" src={selectedProduct.img} alt="" />
+              <div className="max-w-40 max-h-40 rounded-sm overflow-hidden flex justify-center">
+                {selectedProduct.id ? (
+                  <img className="size-auto" src={selectedProduct.img} alt="" />
+                ) : (
+                  <FontAwesomeIcon icon={faMountainSun} />
+                )}
               </div>
               <div className="">
                 <p>

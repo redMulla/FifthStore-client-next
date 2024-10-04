@@ -39,7 +39,7 @@ export default function Home() {
       </div>
 
       {/* Sidebar */}
-      <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1">
+      <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950">
         <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
           <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
             <img
@@ -49,30 +49,32 @@ export default function Home() {
             />
           </div>
           <div className="flex-grow flex flex-col ms-2 xl:ms-4">
-            <p className="font-bold xl:text-lg text-blue-950 text-nowrap">
+            <p className="font-bold xl:text-lg dark:text-blue-50 text-blue-950 text-nowrap">
               Bryan Doe
             </p>
-            <p className="text-blue-500 text-xs xl:text-sm">Admin</p>
+            <p className="text-blue-500 text-xs xl:text-sm dark:text-blue-300">
+              Admin
+            </p>
           </div>
           <div
             onClick={() => setShowMenu(!showMenu)}
-            className={`text-blue-950 border px-2 py-1 relative rounded ${
-              showMenu ? '' : 'hover:bg-gray-100'
+            className={`text-blue-950 dark:text-blue-50 border px-2 py-1 relative rounded ${
+              showMenu ? '' : 'hover:bg-gray-100 dark:hover:bg-gray-950'
             } cursor-pointer`}
           >
             <FontAwesomeIcon icon={faEllipsisV} />
             {showMenu && (
-              <div className="absolute shadow-lg rounded-md overflow-hidden h-28 w-36 top-3 -left-36 bg-gray-100">
+              <div className="absolute shadow-lg rounded-md overflow-hidden h-28 w-36 top-3 -left-36 bg-gray-100 dark:bg-gray-900">
                 <ul className="w-full text-center h-full flex flex-col justify-between ">
-                  <li className="border-b h-full flex justify-center items-center hover:bg-gray-200">
+                  <li className="border-b h-full dark:border-gray-700 flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950">
                     Profile
                   </li>
-                  <li className="border-b h-full flex justify-center items-center hover:bg-gray-200">
+                  <li className="border-b dark:border-gray-700 h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950">
                     Settings
                   </li>
                   <li
                     onClick={logout}
-                    className="border-b h-full flex justify-center items-center hover:bg-gray-200"
+                    className="h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
                   >
                     Logout
                   </li>
@@ -82,7 +84,7 @@ export default function Home() {
           </div>
         </div>
         <div className="borde-b border-blue-100 px-4 xl:px-8 pt-4">
-          <p className="font-bold xl:text-lg text-blue-950 text-nowrap">
+          <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Quick Actions
           </p>
         </div>
