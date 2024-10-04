@@ -63,20 +63,20 @@ const LoginComponent = () => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl">
+    <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center">
         Login
       </h1>
       <p className="text-center pb-6">
         or{' '}
-        <Link href="/signup" className="text-blue-600">
+        <Link href="/signup" className="text-blue-600 dark:text-blue-400">
           Register?
         </Link>
       </p>
       <form onSubmit={handleSubmit}>
         <label
           htmlFor="email"
-          className="block text-lg pb-2 leading-6 text-gray-900"
+          className="block text-lg pb-2 leading-6 text-gray-900 dark:text-gray-400"
           id="email"
         >
           Email
@@ -85,14 +85,14 @@ const LoginComponent = () => {
           type="email"
           name="email"
           id="email"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3"
+          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
           placeholder="Enter your email"
           onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
         />
 
         <label
           htmlFor="password"
-          className="block text-lg pb-2 leading-6 text-gray-900 pt-4"
+          className="block text-lg pb-2 leading-6 text-gray-900 pt-4 dark:text-gray-400"
         >
           Password
         </label>
@@ -101,7 +101,7 @@ const LoginComponent = () => {
             type={passwordShown ? 'text' : 'password'}
             name="password"
             id="password"
-            className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5"
+            className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
             placeholder="Enter your password"
             onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
           />
