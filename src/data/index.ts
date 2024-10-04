@@ -43,7 +43,7 @@ export const products = [
     currency: '$',
   },
   {
-    id: 3,
+    id: 5,
     name: 'iPhone 15 Pro Max',
     color: 'Black',
     category: 'Phone',
