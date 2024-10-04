@@ -21,10 +21,11 @@ export const products = [
   {
     id: 2,
     name: 'Microsoft Surface Pro',
-    color: 'White',
+    color: 'blue',
     category: 'Laptop Pc',
     price: 1999,
     currency: '$',
+    img: 'https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/surface-pro-11th-edition-sapphire-360-horizontal-poster?fmt=png-alpha&scl=1',
   },
   {
     id: 3,

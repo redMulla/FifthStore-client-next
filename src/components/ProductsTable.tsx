@@ -71,15 +71,23 @@ const ProductsTable = () => {
         <Modal.Header>Product Details</Modal.Header>
         <Modal.Body>
           {selectedProduct && (
-            <div className="flex flex-row justify-center gap-10">
-              <div className="max-w-40 max-h-40 rounded-sm overflow-hidden flex justify-center">
-                {selectedProduct.id ? (
+            <div className="flex flex-row justify-center gap-20">
+              <div
+                className={` rounded-lg overflow-hidden flex justify-center bg-gray-200 dark:bg-gray-800 p-2 ${
+                  selectedProduct.img
+                    ? 'max-w-40 max-h-40'
+                    : 'size-40 text-gray-400'
+                }`}
+              >
+                {selectedProduct.img ? (
                   <img className="size-auto" src={selectedProduct.img} alt="" />
                 ) : (
-                  <FontAwesomeIcon icon={faMountainSun} />
+                  <div className="m-auto text-5xl">
+                    <FontAwesomeIcon icon={faMountainSun} />
+                  </div>
                 )}
               </div>
-              <div className="">
+              <div className=" my-auto">
                 <p>
                   <span className="font-bold">Name:</span>{' '}
                   {selectedProduct.name}
