@@ -17,17 +17,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <ThemeModeScript />
-      </head>
+    <Flowbite>
+      <html lang="en">
+        <head>
+          <ThemeModeScript />
+        </head>
 
-      <Flowbite>
         <body className={`${montserrat.className}`} suppressHydrationWarning>
           <NextTopLoader color="#03e8fc" height={4} showSpinner={false} />
           {children}
         </body>
-      </Flowbite>
-    </html>
+      </html>
+    </Flowbite>
   );
 }

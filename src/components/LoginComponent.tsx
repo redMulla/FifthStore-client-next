@@ -64,7 +64,7 @@ const LoginComponent = () => {
   };
   return (
     <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl">
-      <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center">
+      <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center dark:text-blue-600">
         Login
       </h1>
       <p className="text-center pb-6">

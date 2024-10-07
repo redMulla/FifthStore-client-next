@@ -73,7 +73,7 @@ const ProductsTable = () => {
           {selectedProduct && (
             <div className="flex flex-row justify-center gap-20">
               <div
-                className={` rounded-lg overflow-hidden flex justify-center bg-gray-200 dark:bg-gray-800 p-2 ${
+                className={` rounded-lg overflow-hidden w-40 flex justify-center bg-gray-200 dark:bg-gray-800 p-2 ${
                   selectedProduct.img
                     ? 'max-w-40 max-h-40'
                     : 'size-40 text-gray-400'

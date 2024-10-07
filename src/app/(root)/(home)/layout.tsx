@@ -18,23 +18,21 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en">
-      <Flowbite>
-        <body className={`${montserrat.className} max-h-full`}>
-          <div className="flex flex-col h-screen w-screen bg-blue-50 dark:bg-gray-800">
-            <div className="fixed w-full">
-              <NavBar />
-            </div>
-            <div className="pt-14 flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-full">
-              <div className="fixed">
-                <SideBar />
-              </div>
-              <main className="w-full max-h-full ms-16 lg:ms-60 overflow-auto">
-                {children}
-              </main>
-            </div>
+      <body className={`${montserrat.className} max-h-full`}>
+        <div className="flex flex-col h-screen w-screen bg-blue-50 dark:bg-gray-800">
+          <div className="fixed w-full">
+            <NavBar />
           </div>
-        </body>
-      </Flowbite>
+          <div className="pt-14 flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-full">
+            <div className="fixed">
+              <SideBar />
+            </div>
+            <main className="w-full max-h-full ms-16 lg:ms-60 overflow-auto">
+              {children}
+            </main>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
