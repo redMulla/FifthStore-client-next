@@ -66,7 +66,7 @@ const ProductsTable = () => {
       <Modal
         show={isOpen}
         onClose={handleCloseModal}
-        className="text-blue-950 dark:text-blue-200"
+        className="text-blue-950 dark:text-blue-200 font-primary"
       >
         <Modal.Header>Product Details</Modal.Header>
         <Modal.Body>

@@ -11,7 +11,7 @@ type SalesCardProps = {
 
 const SalesCard: React.FC<SalesCardProps> = ({ icon, title, value, color }) => {
   return (
-    <div className="px-6 py-4 flex flex-row flex-nowrap bg-white dark:bg-blue-950 rounded-lg items-center hover:scale-110 transition duration-500 ease-in-out">
+    <div className="px-6 py-4 flex flex-row flex-nowrap bg-white dark:bg-blue-950 rounded-lg items-center hover:scale-110 transition duration-500 ease-in-out font-primary">
       <div
         className={`h-10 w-10 rounded-full text-${color}-600 bg-blue-100 dark:bg-blue-400 flex items-center justify-center`}
       >

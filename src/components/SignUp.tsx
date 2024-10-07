@@ -58,7 +58,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl min-h-max">
+    <div className="flex flex-col rounded-lg bg-gray-100 p-8 border border-gray-400 py-12 shadow-2xl min-h-max font-primary">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center">
         Sign Up
       </h1>

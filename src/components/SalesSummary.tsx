@@ -36,7 +36,7 @@ const salesArr = [
 
 const SalesSummary = () => {
   return (
-    <div className="max-w-full bg-blue-50 dark:bg-gray-800 overflow-x-auto h-44 flex flex-row flex-nowrap items-center justify-around gap-3">
+    <div className="max-w-full bg-blue-50 dark:bg-gray-800 overflow-x-auto h-44 flex flex-row flex-nowrap items-center justify-around gap-3 font-primary">
       {/* CARD SECTION */}
       {salesArr.map((item, index) => (
         <SalesCard

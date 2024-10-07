@@ -15,7 +15,7 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="w-16 lg:min-w-60 bg-blue-50 dark:bg-gray-800">
+    <div className="w-16 lg:min-w-60 bg-blue-50 dark:bg-gray-800 font-primary">
       <ul className=" text-center px-1 lg:px-3 mt-3 font-semibold">
         <Link href="/">
           <li

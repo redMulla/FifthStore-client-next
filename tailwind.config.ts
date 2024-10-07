@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 import flowbite from 'flowbite-react/tailwind';
-import { Montserrat } from 'next/font/google';
+// import { Montserrat } from 'next/font/google';
 
 const config: Config = {
   content: [

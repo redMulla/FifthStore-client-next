@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'nextjs-toploader/app';
+import ErrorComponent from './ErrorComponent';
 
 const LoginComponent = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -63,7 +64,7 @@ const LoginComponent = () => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl">
+    <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl font-primary">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center dark:text-blue-600">
         Login
       </h1>
@@ -117,9 +118,7 @@ const LoginComponent = () => {
           </a>
         </div>
         {showErrorMessage && !isLoading && (
-          <p className="text-red-600 my-5 rounded-lg p-5 text-center left-0 right-0 mx-auto w-max px-10 bg-red-200 absolute top-0 error text-nowrap">
-            {error}
-          </p>
+          <ErrorComponent err={error}></ErrorComponent>
         )}
         <button
           type="submit"
