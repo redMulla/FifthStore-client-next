@@ -10,6 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'nextjs-toploader/app';
 import ProductsTable from '@/components/ProductsTable';
+import SalesOrder from '@/components/SalesOrder';
+import { salesData } from '@/data';
+import { Label, Select } from 'flowbite-react';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -35,7 +38,24 @@ export default function Home() {
       <div className=" col-span-4 md:col-span-3 h-full w-full bg-white dark:bg-gray-700 max-h-[100vh] overflow-y-auto">
         <SalesSummary />
         <ChartCard />
-        <ProductsTable />
+        {/* <ProductsTable /> */}
+        <div className="flex flex-col gap-8 pb-8">
+          <div className="flex justify-between px-8 pt-4 align-middle">
+            <h2 className="font-bold text-black dark:text-white text-2xl">
+              Sales Order
+            </h2>
+
+            <div className="w-24">
+              <Select id="countries" required>
+                <option>7 days</option>
+                <option>30 days</option>
+                <option>60 days</option>
+                <option>1 year</option>
+              </Select>
+            </div>
+          </div>
+          <SalesOrder sales={salesData} />
+        </div>
       </div>
 
       {/* Sidebar */}

@@ -1,3 +1,5 @@
+import { channel } from 'diagnostics_channel';
+
 export interface ProductModel {
   id: number;
   name: string;
@@ -6,6 +8,16 @@ export interface ProductModel {
   price: number;
   currency: string;
   img: string;
+}
+
+export interface SalesModel {
+  id: number;
+  channel: string;
+  draft: number;
+  confirmed: number;
+  packed: number;
+  shipped: number;
+  invoiced: number;
 }
 
 export const products = [
@@ -50,5 +62,35 @@ export const products = [
     category: 'Phone',
     price: 1200,
     currency: '$',
+  },
+];
+
+export const salesData = [
+  {
+    id: 1,
+    channel: 'Direct Sales',
+    draft: 2,
+    confirmed: 32,
+    packed: 42,
+    shipped: 23,
+    invoiced: 7,
+  },
+  {
+    id: 2,
+    channel: 'Wholesale',
+    draft: 0,
+    confirmed: 41,
+    packed: 33,
+    shipped: 11,
+    invoiced: 14,
+  },
+  {
+    id: 3,
+    channel: 'Retail',
+    draft: 2,
+    confirmed: 12,
+    packed: 25,
+    shipped: 16,
+    invoiced: 21,
   },
 ];

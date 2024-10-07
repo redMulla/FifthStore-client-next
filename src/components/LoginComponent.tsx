@@ -118,7 +118,7 @@ const LoginComponent = () => {
           </a>
         </div>
         {showErrorMessage && !isLoading && (
-          <ErrorComponent err={error}></ErrorComponent>
+          <ErrorComponent err={error as string}></ErrorComponent>
         )}
         <button
           type="submit"
