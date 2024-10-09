@@ -20,6 +20,7 @@ import ProductsTable from '@/components/ProductsTable';
 import SalesOrder from '@/components/SalesOrder';
 import { salesData } from '@/data';
 import { Label, Select } from 'flowbite-react';
+import Link from 'next/link';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -110,15 +111,15 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="borde-b border-blue-100 px-4 xl:px-8 pt-4">
+        <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-5">
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Quick Actions
           </p>
 
-          <div className="flex flex-col gap-2 pt-4 text-gray-500 dark:text-gray-400 ps-1 text-sm">
-            <span className="hover:underline cursor-pointer">
+          <div className="flex flex-col gap-3 pt-4 text-gray-500 dark:text-gray-400 ps-1 text-sm">
+            <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faFile} /> Create Order
-            </span>
+            </Link>
             <span className="hover:underline cursor-pointer">
               <FontAwesomeIcon icon={faBoxOpen} /> Add Product
             </span>
