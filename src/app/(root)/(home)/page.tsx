@@ -111,12 +111,33 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-5">
+        <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-8">
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Quick Actions
           </p>
 
-          <div className="flex flex-col gap-3 pt-4 text-gray-500 dark:text-gray-400 ps-1 text-sm">
+          <div className="flex flex-col gap-4 pt-4 text-gray-500 dark:text-gray-400 ps-1 text-sm">
+            <Link className="hover:underline" href={'#'}>
+              <FontAwesomeIcon icon={faFile} /> Create Order
+            </Link>
+            <Link className="hover:underline" href={'#'}>
+              <FontAwesomeIcon icon={faBoxOpen} /> Add Product
+            </Link>
+            <Link className="hover:underline" href={'#'}>
+              <FontAwesomeIcon icon={faTruck} /> Add Supplier
+            </Link>
+            <Link className="hover:underline" href={'#'}>
+              <FontAwesomeIcon icon={faFileExport} /> Export
+            </Link>
+          </div>
+        </div>
+
+        <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-5">
+          <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
+            Fast Moving Items
+          </p>
+
+          <div className="flex flex-col gap-6 pt-6 text-gray-500 dark:text-gray-400 ps-1 text-sm">
             <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faFile} /> Create Order
             </Link>
