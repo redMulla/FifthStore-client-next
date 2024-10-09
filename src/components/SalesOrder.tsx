@@ -8,7 +8,7 @@ interface SalesOrderProps {
 
 const SalesOrder: React.FC<SalesOrderProps> = ({ sales }) => {
   return (
-    <div className="flex flex-col rounded-lg dark:bg-gray-700 font-primary">
+    <div className="flex flex-col rounded-lg dark:bg-gray-700 font-primary border">
       <Table className="font-primary">
         <Table.Head>
           <Table.HeadCell>Channel</Table.HeadCell>
@@ -24,7 +24,7 @@ const SalesOrder: React.FC<SalesOrderProps> = ({ sales }) => {
               className="bg-white dark:border-gray-700 dark:bg-gray-800"
               key={sale.id}
             >
-              <Table.Cell>{sale.channel}</Table.Cell>
+              <Table.Cell className="font-bold">{sale.channel}</Table.Cell>
               <Table.Cell>{sale.draft}</Table.Cell>
               <Table.Cell>{sale.confirmed}</Table.Cell>
               <Table.Cell>{sale.packed}</Table.Cell>

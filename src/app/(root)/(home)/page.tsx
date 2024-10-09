@@ -39,8 +39,8 @@ export default function Home() {
         <SalesSummary />
         <ChartCard />
         {/* <ProductsTable /> */}
-        <div className="flex flex-col gap-8 pb-8">
-          <div className="flex justify-between px-8 pt-4 align-middle">
+        <div className="flex flex-col gap-2 pb-8 pt-4">
+          <div className="flex justify-between items-center px-8 pt-4 pb-4">
             <h2 className="font-bold text-black dark:text-white text-2xl">
               Sales Order
             </h2>
@@ -107,6 +107,13 @@ export default function Home() {
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Quick Actions
           </p>
+
+          <div className="flex flex-col gap-2 pt-4 text-gray-800 dark:text-gray-400">
+            <span>Create Order</span>
+            <span>Add Product</span>
+            <span>Add Supplier</span>
+            <span>Export</span>
+          </div>
         </div>
       </div>
     </div>
