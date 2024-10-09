@@ -120,15 +120,15 @@ export default function Home() {
             <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faFile} /> Create Order
             </Link>
-            <span className="hover:underline cursor-pointer">
+            <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faBoxOpen} /> Add Product
-            </span>
-            <span className="hover:underline cursor-pointer">
+            </Link>
+            <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faTruck} /> Add Supplier
-            </span>
-            <span className="hover:underline cursor-pointer">
+            </Link>
+            <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faFileExport} /> Export
-            </span>
+            </Link>
           </div>
         </div>
       </div>
