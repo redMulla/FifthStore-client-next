@@ -7,7 +7,14 @@ import { useEffect, useState } from 'react';
 import SalesSummary from '@/components/SalesSummary';
 import ChartCard from '@/components/ChartCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBoxOpen,
+  faEllipsisV,
+  faFile,
+  faFileExport,
+  faTruck,
+  faVanShuttle,
+} from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'nextjs-toploader/app';
 import ProductsTable from '@/components/ProductsTable';
 import SalesOrder from '@/components/SalesOrder';
@@ -108,11 +115,19 @@ export default function Home() {
             Quick Actions
           </p>
 
-          <div className="flex flex-col gap-2 pt-4 text-gray-800 dark:text-gray-400">
-            <span>Create Order</span>
-            <span>Add Product</span>
-            <span>Add Supplier</span>
-            <span>Export</span>
+          <div className="flex flex-col gap-2 pt-4 text-gray-500 dark:text-gray-400 ps-1 text-sm">
+            <span className="hover:underline cursor-pointer">
+              <FontAwesomeIcon icon={faFile} /> Create Order
+            </span>
+            <span className="hover:underline cursor-pointer">
+              <FontAwesomeIcon icon={faBoxOpen} /> Add Product
+            </span>
+            <span className="hover:underline cursor-pointer">
+              <FontAwesomeIcon icon={faTruck} /> Add Supplier
+            </span>
+            <span className="hover:underline cursor-pointer">
+              <FontAwesomeIcon icon={faFileExport} /> Export
+            </span>
           </div>
         </div>
       </div>
