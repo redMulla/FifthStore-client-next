@@ -21,6 +21,7 @@ import SalesOrder from '@/components/SalesOrder';
 import { salesData } from '@/data';
 import { Label, Select } from 'flowbite-react';
 import Link from 'next/link';
+import Image from 'next/image';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -132,23 +133,65 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-5">
+        <div className="px-4 xl:px-8 pt-4 pb-5">
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Fast Moving Items
           </p>
 
           <div className="flex flex-col gap-6 pt-6 text-gray-500 dark:text-gray-400 ps-1 text-sm">
             <Link className="hover:underline" href={'#'}>
-              <FontAwesomeIcon icon={faFile} /> Create Order
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={'./images/prod.jpeg'}
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Macbook Pro
+              </div>
             </Link>
             <Link className="hover:underline" href={'#'}>
-              <FontAwesomeIcon icon={faBoxOpen} /> Add Product
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCeXwvg3aZZPg-9z6G_NP5YEU5VGE2I-tNQ&s'
+                    }
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Zoom75
+              </div>
             </Link>
             <Link className="hover:underline" href={'#'}>
-              <FontAwesomeIcon icon={faTruck} /> Add Supplier
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm4pNSdOftAN8oneuVCQzTd2aJD2exuCBe7w&s'
+                    }
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Airpods Pro
+              </div>
             </Link>
             <Link className="hover:underline" href={'#'}>
-              <FontAwesomeIcon icon={faFileExport} /> Export
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={
+                      'https://bsimg.nl/images/samsung-galaxy-z-fold-4-256gb-groen_2.jpg/Bl_Awokhr_PJrjQhWoVIl2rtdLk%3D/fit-in/0x0/filters%3Aupscale%28%29'
+                    }
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Samsung Galaxy Fold
+              </div>
             </Link>
           </div>
         </div>
