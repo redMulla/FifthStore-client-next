@@ -3,7 +3,7 @@
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { redirect } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SalesSummary from '@/components/SalesSummary';
 import ChartCard from '@/components/ChartCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,9 +25,7 @@ import Image from 'next/image';
 config.autoAddCss = false;
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false);
-  const router = useRouter();
-
+  const [showMenu, setShowMenu] = useState(false), router = useRouter();
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {

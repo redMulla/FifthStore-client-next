@@ -4,9 +4,7 @@ import { ApexOptions } from 'apexcharts';
 import dynamic from 'next/dynamic';
 import { Button, Tooltip } from 'flowbite-react';
 
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
-
-const ChartCard = () => {
+const Chart = dynamic(() => import('react-apexcharts'), {ssr: false}), ChartCard = () => {
   const chartOptions: ApexOptions = {
     series: [
       {
@@ -23,10 +21,10 @@ const ChartCard = () => {
       },
     ],
     chart: {
-      type: 'bar',
-      height: 350,
-      foreColor: '#fff',
       background: '#283d66',
+      foreColor: '#fff',
+      height: 350,
+      type: 'bar',
     },
     title: {
       text: 'Financial Performance',
@@ -85,21 +83,21 @@ const ChartCard = () => {
   };
 
   return (
-    <div className="max-w-full px-5 overflow-auto bg-[#283d66] text-black pt-4 border-b-2 border-blue-50">
-      <div className="min-w-96 w-full h-60 md:h-96 relative">
-        <Chart
-          options={chartOptions}
-          height={'95%'}
-          series={chartOptions.series}
-          type="bar"
-        />
-        <Button className="absolute top-0 text-white bg-blue-600 hover:bg-blue-700 px-3">
-          <Tooltip content="Stats">
-            <span className="size-full">More</span>
-          </Tooltip>
-        </Button>
+      <div className="max-w-full px-5 overflow-auto bg-[#283d66] text-black pt-4 border-b-2 border-blue-50">
+        <div className="min-w-96 w-full h-60 md:h-96 relative">
+          <Chart
+              options={chartOptions}
+              height={'95%'}
+              series={chartOptions.series}
+              type="bar"
+          />
+          <Button className="absolute top-0 text-white bg-blue-600 hover:bg-blue-700 px-3">
+            <Tooltip content="Stats">
+              <span className="size-full">More</span>
+            </Tooltip>
+          </Button>
+        </div>
       </div>
-    </div>
   );
 };
 
