@@ -35,7 +35,7 @@ export default function HomeLayout({
             </main>
           </div>
         </div>
-        <div className="h-[20vh] overflow-y-auto max-w-screen overflow-x-hidden">
+        <div className="h-[20vh] overflow-y-auto max-w-screen overflow-x-hidden dark:bg-gray-800 bg-blue-50">
           <FooterComponent />
         </div>
       </body>
