@@ -25,7 +25,8 @@ import Image from 'next/image';
 config.autoAddCss = false;
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false), router = useRouter();
+  const [showMenu, setShowMenu] = useState(false),
+    router = useRouter();
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {
@@ -83,7 +84,7 @@ export default function Home() {
               Admin
             </p>
           </div>
-          <div
+          <button
             onClick={() => setShowMenu(!showMenu)}
             className={`text-blue-950 dark:text-blue-50 border px-2 py-1 relative rounded ${
               showMenu ? '' : 'hover:bg-gray-100 dark:hover:bg-gray-950'
@@ -93,13 +94,20 @@ export default function Home() {
             {showMenu && (
               <div className="absolute shadow-lg rounded-md overflow-hidden h-28 w-36 top-3 -left-36 bg-gray-100 dark:bg-gray-900">
                 <ul className="w-full text-center h-full flex flex-col justify-between ">
-                  <li className="border-b h-full dark:border-gray-700 flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950">
+                  <li
+                    tabIndex={0}
+                    className="border-b h-full dark:border-gray-700 flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
+                  >
                     Profile
                   </li>
-                  <li className="border-b dark:border-gray-700 h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950">
+                  <li
+                    tabIndex={0}
+                    className="border-b dark:border-gray-700 h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
+                  >
                     Settings
                   </li>
                   <li
+                    tabIndex={0}
                     onClick={logout}
                     className="h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
                   >
@@ -108,7 +116,7 @@ export default function Home() {
                 </ul>
               </div>
             )}
-          </div>
+          </button>
         </div>
         <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-8">
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
