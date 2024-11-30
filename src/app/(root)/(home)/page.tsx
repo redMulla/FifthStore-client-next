@@ -22,11 +22,13 @@ import { salesData } from '@/data';
 import { Label, Select } from 'flowbite-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import NewProduct from '@/components/NewProduct';
 config.autoAddCss = false;
 
 export default function Home() {
   const [showMenu, setShowMenu] = useState(false),
     router = useRouter();
+  const [addProd, setAddProd] = useState(false);
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {
@@ -127,9 +129,14 @@ export default function Home() {
             <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faFile} /> Create Order
             </Link>
-            <Link className="hover:underline" href={'#'}>
+            <div
+              className="hover:underline cursor-pointer"
+              onClick={() => setAddProd(!addProd)}
+              tabIndex={0}
+            >
               <FontAwesomeIcon icon={faBoxOpen} /> Add Product
-            </Link>
+            </div>
+            <NewProduct isEnabled={addProd} setIsEnabled={setAddProd} />
             <Link className="hover:underline" href={'#'}>
               <FontAwesomeIcon icon={faTruck} /> Add Supplier
             </Link>
