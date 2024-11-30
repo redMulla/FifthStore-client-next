@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="h-[100vh] w-[100vw] flex justify-center items-center text-center bg-white text-gray-800">
       <div className="flex flex-col gap-4">
-        <div className="max-w-[400px]">
+        <div className="max-w-[400px] w-100">
           <img
             className="h-auto w-[400px]"
             src="/images/404Error.svg"
