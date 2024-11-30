@@ -48,7 +48,7 @@ export default function Home() {
         <ChartCard />
         {/* <ProductsTable /> */}
         <div className="flex flex-col gap-2 pb-8 pt-4">
-          <div className="flex justify-between items-center px-8 pt-4 pb-4">
+          <div className="flex justify-between items-center px-8 pt-4 pb-4 w-full">
             <h2 className="font-bold text-black dark:text-white text-2xl">
               Sales Order
             </h2>
