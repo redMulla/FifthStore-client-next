@@ -34,7 +34,7 @@ const LoginComponent = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    setShowErrorMessage(false);
     if (!email || !password) {
       setError('Please fill in all fields');
       setLoading(false);
