@@ -1,3 +1,4 @@
+import { FooterComponent } from '@/components/FooterComponent';
 import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
 import { Flowbite } from 'flowbite-react';
@@ -18,19 +19,24 @@ export default function HomeLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} max-h-full`}>
-        <div className="flex flex-col h-screen w-screen bg-blue-50 dark:bg-gray-800">
+      <body
+        className={`${montserrat.className} max-h-full max-w-full overflow-x-hidden`}
+      >
+        <div className="flex flex-col max-h-[80vh]  w-screen bg-blue-50 dark:bg-gray-800">
           <div className="fixed w-full">
             <NavBar />
           </div>
-          <div className="pt-14 flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-full">
+          <div className="pt-14 flex-1 flex flex-row 2xl:container 2xl:max-2xl mx-auto max-h-[80vh]">
             <div className="fixed">
               <SideBar />
             </div>
-            <main className="w-full max-h-full ms-16 lg:ms-60 overflow-auto">
+            <main className="w-full max-h-[80vh] ms-16 lg:ms-60 overflow-auto">
               {children}
             </main>
           </div>
+        </div>
+        <div className="h-[20vh] max-w-screen">
+          <FooterComponent />
         </div>
       </body>
     </html>

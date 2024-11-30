@@ -51,3 +51,7 @@ body {
     top: 0%;
   }
 }
+
+* {
+  scrollbar-width: thin;
+}
