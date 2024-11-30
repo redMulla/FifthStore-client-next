@@ -5,7 +5,7 @@ import { Footer } from 'flowbite-react';
 export const FooterComponent = () => {
   const year = new Date().getFullYear();
   return (
-    <Footer container className="dark:bg-gray-900">
+    <Footer container className="dark:bg-gray-900 h-full">
       <div className="w-screen max-w-[1536px] mx-auto text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand
