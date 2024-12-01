@@ -10,13 +10,13 @@ const NewProduct: React.FC<ChildComponentProps> = ({
   setIsEnabled,
 }) => {
   //   const [openModal, setOpenModal] = useState(isEnabled);
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
 
   function onCloseModal() {
     setIsEnabled(false);
     isEnabled = false;
 
-    setEmail('');
+    setName('');
   }
 
   return (
@@ -25,39 +25,28 @@ const NewProduct: React.FC<ChildComponentProps> = ({
         <Modal.Header />
         <Modal.Body>
           <div className="space-y-6">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Sign in to our platform
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              Create New Product
             </h3>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="email" value="Your email" />
+                <Label htmlFor="name" value="Product name" />
               </div>
               <TextInput
-                id="email"
-                placeholder="name@company.com"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                id="name"
+                placeholder="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
                 required
               />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="password" value="Your password" />
+                <Label htmlFor="category" value="Category" />
               </div>
-              <TextInput id="password" type="password" required />
+              <TextInput id="category" type="text" required />
             </div>
-            <div className="flex justify-between">
-              <div className="flex items-center gap-2">
-                <Checkbox id="remember" />
-                <Label htmlFor="remember">Remember me</Label>
-              </div>
-              <a
-                href="#"
-                className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
-              >
-                Lost Password?
-              </a>
-            </div>
+
             <div className="w-full">
               <Button>Log in to your account</Button>
             </div>
