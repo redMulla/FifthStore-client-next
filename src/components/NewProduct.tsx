@@ -29,22 +29,27 @@ const NewProduct: React.FC<ChildComponentProps> = ({
               Create New Product
             </h3>
             <div>
-              <div className="mb-2 block">
+              {/* <div className="mb-2 block">
                 <Label htmlFor="name" value="Product name" />
-              </div>
+              </div> */}
               <TextInput
                 id="name"
-                placeholder="name"
+                placeholder="Name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 required
               />
             </div>
             <div>
-              <div className="mb-2 block">
+              {/* <div className="mb-2 block">
                 <Label htmlFor="category" value="Category" />
-              </div>
-              <TextInput id="category" type="text" required />
+              </div> */}
+              <TextInput
+                id="category"
+                type="text"
+                placeholder="Category"
+                required
+              />
             </div>
 
             <div className="w-full">
