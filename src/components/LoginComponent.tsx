@@ -1,4 +1,5 @@
 'use client';
+
 import api from '@/api';
 import {
   faEye,
@@ -52,9 +53,11 @@ const LoginComponent = () => {
         router.push('/');
       })
       .catch((err) => {
-        const { status, data } = err.response;
+        // const { status, data } = err.response;
 
-        setError(`${status}: ${data.message}`);
+        // setError(`${status}: ${data.message}`);
+        setError('Error!! Something went wrong');
+        console.log('Error88888888888:', err);
         setLoading(false);
         console.error('Error:', error);
       });

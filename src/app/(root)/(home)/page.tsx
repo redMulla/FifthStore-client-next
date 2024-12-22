@@ -23,6 +23,7 @@ import { Label, Select } from 'flowbite-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import NewProduct from '@/components/NewProduct';
+import { useUser } from '@/context/UserContext';
 config.autoAddCss = false;
 
 export default function Home() {
@@ -37,6 +38,8 @@ export default function Home() {
       console.log(accessToken);
     }
   }, []);
+
+  const user = useUser().user;
 
   const logout = () => {
     localStorage.removeItem('jwtToken');
@@ -78,12 +81,12 @@ export default function Home() {
               className="size-full"
             />
           </div>
-          <div className="flex-grow flex flex-col ms-2 xl:ms-4">
-            <p className="font-bold xl:text-lg dark:text-blue-50 text-blue-950 text-nowrap">
-              Bryan Doe
+          <div className="flex-grow flex flex-col ms-2 xl:ms-4 me-2">
+            <p className="font-bold truncate xl:text-lg dark:text-blue-50 text-blue-950 text-nowrap">
+              {user?.name}
             </p>
             <p className="text-blue-500 text-xs xl:text-sm dark:text-blue-300">
-              Admin
+              {user?.role}
             </p>
           </div>
           <button

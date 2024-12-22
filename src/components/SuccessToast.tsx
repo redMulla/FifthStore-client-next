@@ -12,7 +12,7 @@ const SuccessToast = ({ message }: { message?: string }) => {
         <div className="ml-3 text-sm font-normal me-2">
           {message ? message : 'Success'}
         </div>
-        <Toast.Toggle className=" bg-emerald-100 dark:bg-emerald-900" />
+        {/* <Toast.Toggle className=" bg-emerald-100 dark:bg-emerald-900" /> */}
       </Toast>
     </div>
   );

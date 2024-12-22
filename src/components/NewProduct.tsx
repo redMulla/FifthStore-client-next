@@ -1,12 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  Label,
-  Modal,
-  Select,
-  TextInput,
-} from 'flowbite-react';
-import React, { useState } from 'react';
+'use client';
+import { Button, Label, Modal, Select, TextInput } from 'flowbite-react';
+import React, { useEffect, useState } from 'react';
 import api from '@/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -24,14 +18,26 @@ const NewProduct: React.FC<ChildComponentProps> = ({
   const [product, setProduct] = useState({
     name: '',
     price: {
-      price: 0,
+      price: '',
       currency: 'BIF',
     },
-    stock_qty: 0,
+    stock_qty: '',
   });
 
   const [isLoading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showSuccessMessage, setShowSuccessMesagge] = useState(false);
+
+  useEffect(() => {
+    if (success) {
+      setShowSuccessMesagge(true);
+      const timeoutId = setTimeout(() => {
+        setShowSuccessMesagge(false);
+      }, 10000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [success]);
 
   function onCloseModal() {
     setIsEnabled(false);
@@ -40,10 +46,10 @@ const NewProduct: React.FC<ChildComponentProps> = ({
     setProduct({
       name: '',
       price: {
-        price: 0,
-        currency: '',
+        price: '',
+        currency: 'BIF',
       },
-      stock_qty: 0,
+      stock_qty: '',
     });
   }
 
@@ -108,7 +114,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
                         ...product,
                         price: {
                           ...product.price,
-                          price: Number(event.target.value),
+                          price: event.target.value,
                         },
                       })
                     }
@@ -156,7 +162,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
                   onChange={(event) =>
                     setProduct({
                       ...product,
-                      stock_qty: Number(event.target.value),
+                      stock_qty: event.target.value,
                     })
                   }
                 />
@@ -180,7 +186,9 @@ const NewProduct: React.FC<ChildComponentProps> = ({
         </Modal.Body>
       </Modal>
 
-      {success ? <SuccessToast message="Product created successfully" /> : null}
+      {showSuccessMessage ? (
+        <SuccessToast message="Product created successfully" />
+      ) : null}
     </>
   );
 };
