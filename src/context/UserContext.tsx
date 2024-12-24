@@ -1,5 +1,11 @@
 'use client';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import api from '@/api';
 
@@ -27,6 +33,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const pathname = usePathname();
+  const hasFetchedProfile = useRef(false);
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
