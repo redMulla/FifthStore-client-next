@@ -1,7 +1,7 @@
 'use client';
 import { Button, Label, Modal, Select, TextInput } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
-import api from '@/api';
+import { api, useApiInterceptor } from '@/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import SuccessToast from './SuccessToast';
@@ -14,6 +14,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
   isEnabled,
   setIsEnabled,
 }) => {
+  useApiInterceptor();
   //   const [openModal, setOpenModal] = useState(isEnabled);
   const [product, setProduct] = useState({
     name: '',

@@ -1,7 +1,8 @@
 'use client';
 
 import axios from 'axios';
-import Router from 'next/router';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const api = axios.create({
   baseURL: 'http://localhost:4000',
@@ -21,18 +22,45 @@ api.interceptors.request.use(
   },
 );
 
-api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    // Handle 401 errors or other global error handling here
-    if (error.response && error.response.status === 401) {
-      console.error('Unauthorized! Redirecting to login...');
-      localStorage.removeItem('jwtToken');
-      Router.push('/login');
-    }
-    return Promise.reject(error);
-  },
-);
-export default api;
+// api.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   (error) => {
+//     // Handle 401 errors or other global error handling here
+//     if (error.response && error.response.status === 401) {
+//       const router = useRouter();
+//       console.error('Unauthorized! Redirecting to login...');
+//       localStorage.removeItem('jwtToken');
+//       router.push('/login');
+//     }
+//     return Promise.reject(error);
+//   },
+// );
+// export default api;
+
+const useApiInterceptor = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const responseInterceptor = api.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        if (error.response && error.response.status === 401) {
+          console.error('Unauthorized! Redirecting to login...');
+          localStorage.removeItem('jwtToken');
+          router.push('/login');
+        }
+        return Promise.reject(error);
+      },
+    );
+
+    return () => {
+      api.interceptors.response.eject(responseInterceptor);
+    };
+  }, [router]);
+};
+
+export { api, useApiInterceptor };

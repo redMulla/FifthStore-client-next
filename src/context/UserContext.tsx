@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import api from '@/api';
+import { api } from '@/api';
 
 export interface UserModel {
   id: string;
