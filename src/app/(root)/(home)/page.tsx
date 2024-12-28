@@ -16,12 +16,10 @@ import {
   faVanShuttle,
 } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'nextjs-toploader/app';
-import ProductsTable from '@/components/ProductsTable';
 import SalesOrder from '@/components/SalesOrder';
 import { salesData } from '@/data';
-import { Label, Select } from 'flowbite-react';
+import { Select } from 'flowbite-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import NewProduct from '@/components/NewProduct';
 import { useUser } from '@/context/UserContext';
 config.autoAddCss = false;
