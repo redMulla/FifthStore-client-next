@@ -33,6 +33,7 @@ const LoginComponent = () => {
 
   const router = useRouter();
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    setError(null);
     e.preventDefault();
     setLoading(true);
     setShowErrorMessage(false);

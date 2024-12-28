@@ -19,7 +19,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
   const [product, setProduct] = useState({
     name: '',
     price: {
-      price: '',
+      amount: 0,
       currency: 'BIF',
     },
     stock_qty: '',
@@ -34,6 +34,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
       setShowSuccessMesagge(true);
       const timeoutId = setTimeout(() => {
         setShowSuccessMesagge(false);
+        setSuccess(false);
       }, 10000);
 
       return () => clearTimeout(timeoutId);
@@ -47,7 +48,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
     setProduct({
       name: '',
       price: {
-        price: '',
+        amount: 0,
         currency: 'BIF',
       },
       stock_qty: '',
@@ -109,13 +110,12 @@ const NewProduct: React.FC<ChildComponentProps> = ({
                     placeholder="Price"
                     id="price"
                     type="number"
-                    value={product.price.price}
                     onChange={(event) =>
                       setProduct({
                         ...product,
                         price: {
                           ...product.price,
-                          price: event.target.value,
+                          amount: +event.target.value,
                         },
                       })
                     }

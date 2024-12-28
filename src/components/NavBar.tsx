@@ -37,12 +37,14 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faBell} />
             <div className="h-3 w-3 rounded-full bg-red-500 absolute top-3 -right-1"></div>
           </div>
-          <div className="lg:hidden flex h-full items-center ms-2 text-blue-950">
+          <div className="lg:hidden flex h-full items-center ms-2 text-blue-950 mt">
             <FontAwesomeIcon icon={faBars} size="lg" />
           </div>
-          <Flowbite>
-            <DarkThemeToggle />
-          </Flowbite>
+          <div className="py-2">
+            <Flowbite>
+              <DarkThemeToggle />
+            </Flowbite>
+          </div>
         </div>
       </div>
     </nav>
