@@ -30,13 +30,13 @@ const SalesSummary = () => {
       icon: faDollarSign,
       title: 'Net Income',
       value: '$ 68.9k',
-      color: 'red',
+      color: 'purple',
     },
     {
       icon: faBagShopping,
       title: 'Products',
       value: totalProd,
-      color: 'blue',
+      color: 'pink',
     },
   ];
   useEffect(() => {
