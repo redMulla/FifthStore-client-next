@@ -108,7 +108,7 @@ export const SideAction = ({ dash }: Props) => {
         </div>
       </div>
 
-      {dash && (
+      {dash ? (
         <div className="px-4 xl:px-8 pt-4 pb-5">
           <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
             Fast Moving Items
@@ -170,6 +170,55 @@ export const SideAction = ({ dash }: Props) => {
               </div>
             </Link>
           </div>
+        </div>
+      ) : (
+        <div className="px-4 xl:px-8 pt-4 pb-5">
+          <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
+            Recent Activity
+          </p>
+
+          {/* <div className="flex flex-col gap-6 pt-6 text-gray-500 dark:text-gray-400 ps-1 text-sm">
+            <Link className="hover:underline" href={'#'}>
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={'./images/prod.jpeg'}
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Macbook Pro
+              </div>
+            </Link>
+            <Link className="hover:underline" href={'#'}>
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCeXwvg3aZZPg-9z6G_NP5YEU5VGE2I-tNQ&s'
+                    }
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Zoom75
+              </div>
+            </Link>
+            <Link className="hover:underline" href={'#'}>
+              <div className="flex flex-row gap-2 items-center  ">
+                <div className="size-9 rounded-full overflow-hidden bg-blue-700">
+                  <img
+                    src={
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm4pNSdOftAN8oneuVCQzTd2aJD2exuCBe7w&s'
+                    }
+                    alt="product image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Airpods Pro
+              </div>
+            </Link>
+          </div> */}
         </div>
       )}
     </div>
