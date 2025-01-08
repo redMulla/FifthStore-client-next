@@ -3,31 +3,17 @@
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { redirect } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import SalesSummary from '@/components/SalesSummary';
 import ChartCard from '@/components/ChartCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBoxOpen,
-  faEllipsisV,
-  faFile,
-  faFileExport,
-  faTruck,
-  faVanShuttle,
-} from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'nextjs-toploader/app';
+
 import SalesOrder from '@/components/SalesOrder';
 import { salesData } from '@/data';
 import { Select } from 'flowbite-react';
-import Link from 'next/link';
-import NewProduct from '@/components/NewProduct';
-import { useUser } from '@/context/UserContext';
+import { SideAction } from './SideAction';
 config.autoAddCss = false;
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false),
-    router = useRouter();
-  const [addProd, setAddProd] = useState(false);
   useEffect(() => {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {
@@ -36,13 +22,6 @@ export default function Home() {
       console.log(accessToken);
     }
   }, []);
-
-  const user = useUser().user;
-
-  const logout = () => {
-    localStorage.removeItem('jwtToken');
-    router.push('/login');
-  };
 
   return (
     <div className="h-full max-w-[100%] grid grid-cols-4 font-primary">
@@ -70,7 +49,8 @@ export default function Home() {
       </div>
 
       {/* Sidebar */}
-      <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950">
+      <SideAction />
+      {/* <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950">
         <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
           <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
             <img
@@ -209,7 +189,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
