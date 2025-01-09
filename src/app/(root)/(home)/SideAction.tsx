@@ -31,7 +31,7 @@ export const SideAction = ({ dash }: Props) => {
   };
 
   return (
-    <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950">
+    <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950 h-full max-h-full overflow-auto">
       <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
         <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
           <img
