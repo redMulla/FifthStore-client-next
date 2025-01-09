@@ -1,5 +1,5 @@
 'use client';
-import api from '@/api';
+import { api } from '@/api';
 import {
   faEye,
   faEyeSlash,
@@ -40,7 +40,7 @@ const SignUp = () => {
     api
       .post('users', { email, password, phone, name })
       .then((res) => {
-        console.log('Signup Successful:', res.data);
+        // console.log('Signup Successful:', res.data);
         setLoading(false);
         router.push('/login');
       })

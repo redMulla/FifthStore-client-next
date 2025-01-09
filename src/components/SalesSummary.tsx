@@ -42,7 +42,7 @@ const SalesSummary = () => {
   useEffect(() => {
     setIsLoading(true);
     api.get('/dashboard').then((response) => {
-      console.log('HHHHHHHHHHHHHH', response.data);
+      // console.log('HHHHHHHHHHHHHH', response.data);
       setTotalProd(response.data.totalProducts);
       setIsLoading(false);
     });
@@ -52,10 +52,8 @@ const SalesSummary = () => {
     });
 
     socket.on('dashboardUpdate', (data) => {
-      console.log('Dashboard Update Recieved', data);
+      // console.log('Dashboard Update Recieved', data);
       setTotalProd(data.totalProducts);
-
-      console.log('WEBSOCKET DATA', data);
     });
 
     return () => {

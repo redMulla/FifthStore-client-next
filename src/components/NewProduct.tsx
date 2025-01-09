@@ -62,7 +62,6 @@ const NewProduct: React.FC<ChildComponentProps> = ({
     api
       .post('/products', product)
       .then((res) => {
-        console.log('Product created successfully:', res.data);
         setSuccess(true);
         setLoading(false);
         onCloseModal();

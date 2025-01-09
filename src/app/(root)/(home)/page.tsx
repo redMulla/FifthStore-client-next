@@ -18,8 +18,6 @@ export default function Home() {
     const accessToken = localStorage.getItem('jwtToken');
     if (!accessToken) {
       redirect('/login');
-    } else {
-      console.log(accessToken);
     }
   }, []);
 
