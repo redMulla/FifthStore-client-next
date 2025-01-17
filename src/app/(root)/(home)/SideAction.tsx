@@ -32,7 +32,7 @@ export const SideAction = ({ dash }: Props) => {
 
   return (
     <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950 h-full max-h-full overflow-auto">
-      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row">
+      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row max-w-full">
         <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
           <img
             src="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -41,7 +41,7 @@ export const SideAction = ({ dash }: Props) => {
           />
         </div>
         <div className="flex-grow flex flex-col ms-2 xl:ms-4 me-2">
-          <p className="font-bold truncate xl:text-lg dark:text-blue-50 text-blue-950 text-nowrap">
+          <p className="font-bold truncate xl:text-lg dark:text-blue-50 text-blue-950">
             {user?.name}
           </p>
           <p className="text-blue-500 text-xs xl:text-sm dark:text-blue-300">
