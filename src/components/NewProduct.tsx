@@ -139,7 +139,7 @@ const NewProduct: React.FC<ChildComponentProps> = ({
                     <option disabled selected>
                       Currency
                     </option>
-                    <option value="BIF">BIF</option>
+                    <option defaultValue={'BIF'}>BIF</option>
                     <option value="USD" disabled>
                       $
                     </option>

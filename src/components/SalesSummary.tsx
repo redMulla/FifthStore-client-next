@@ -9,15 +9,19 @@ import React, { useEffect, useState } from 'react';
 import SalesCard from './SalesCard';
 import { api } from '@/api';
 import { io } from 'socket.io-client';
+require('dotenv').config();
+
 
 const SalesSummary = () => {
+  const baseUrl = process.env.BASE_URL
   const [isLoading, setIsLoading] = useState(false);
   const [totalProd, setTotalProd] = useState(0);
+  const [todaySales, setTodaySales] = useState(0)
   const salesArr = [
     {
       icon: faChartColumn,
       title: "Today's Sales",
-      value: '143.3k',
+      value: todaySales,
       color: 'red',
     },
     {
@@ -42,8 +46,9 @@ const SalesSummary = () => {
   useEffect(() => {
     setIsLoading(true);
     api.get('/dashboard').then((response) => {
-      // console.log('HHHHHHHHHHHHHH', response.data);
+      console.log('HHHHHHHHHHHHHH', response.data);
       setTotalProd(response.data.totalProducts);
+      setTodaySales(response.data.todaySales)
       setIsLoading(false);
     });
 
@@ -52,8 +57,9 @@ const SalesSummary = () => {
     });
 
     socket.on('dashboardUpdate', (data) => {
-      // console.log('Dashboard Update Recieved', data);
+      console.log('Dashboard Update Recieved', data);
       setTotalProd(data.totalProducts);
+      setTodaySales(data.todaySales)
     });
 
     return () => {
