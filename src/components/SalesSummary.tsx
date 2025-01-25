@@ -11,12 +11,11 @@ import { api } from '@/api';
 import { io } from 'socket.io-client';
 require('dotenv').config();
 
-
 const SalesSummary = () => {
-  const baseUrl = process.env.BASE_URL
-  const [isLoading, setIsLoading] = useState(false);
+  const baseUrl = process.env.BASE_URL;
+  const [isLoading, setIsLoading] = useState(true);
   const [totalProd, setTotalProd] = useState(0);
-  const [todaySales, setTodaySales] = useState(0)
+  const [todaySales, setTodaySales] = useState(0);
   const salesArr = [
     {
       icon: faChartColumn,
@@ -48,7 +47,7 @@ const SalesSummary = () => {
     api.get('/dashboard').then((response) => {
       console.log('HHHHHHHHHHHHHH', response.data);
       setTotalProd(response.data.totalProducts);
-      setTodaySales(response.data.todaySales)
+      setTodaySales(response.data.todaySales);
       setIsLoading(false);
     });
 
@@ -59,7 +58,7 @@ const SalesSummary = () => {
     socket.on('dashboardUpdate', (data) => {
       console.log('Dashboard Update Recieved', data);
       setTotalProd(data.totalProducts);
-      setTodaySales(data.todaySales)
+      setTodaySales(data.todaySales);
     });
 
     return () => {
@@ -76,6 +75,7 @@ const SalesSummary = () => {
           title={item.title}
           value={item.value.toString()}
           color={item.color}
+          loading={isLoading}
         />
       ))}
     </div>

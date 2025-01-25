@@ -13,6 +13,7 @@ import { useUser } from '@/context/UserContext';
 import { useRouter } from 'nextjs-toploader/app';
 import Link from 'next/link';
 import NewProduct from '@/components/NewProduct';
+import { Avatar } from 'flowbite-react';
 
 type Props = {
   dash?: boolean;
@@ -32,22 +33,20 @@ export const SideAction = ({ dash }: Props) => {
 
   return (
     <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950 h-full max-h-full overflow-auto">
-      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row max-w-full">
-        <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
-          <img
-            src="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="profile"
-            className="size-full"
-          />
-        </div>
-        <div className="flex-grow flex flex-col ms-2 xl:ms-4 me-2">
-          <p className="font-bold truncate xl:text-lg dark:text-blue-50 text-blue-950">
-            {user?.name}
-          </p>
-          <p className="text-blue-500 text-xs xl:text-sm dark:text-blue-300">
-            {user?.role}
-          </p>
-        </div>
+      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-between items-center flex-row max-w-full">
+        <Avatar
+          img="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          bordered
+          color="blue"
+          rounded
+        >
+          <div className="space-y-1 font-medium text-black dark:text-white pe-2">
+            <div className="font-bold">{user?.name}</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              {user?.role}
+            </div>
+          </div>
+        </Avatar>
         <button
           onClick={() => setShowMenu(!showMenu)}
           className={`text-blue-950 dark:text-blue-50 border px-2 py-1 relative rounded ${
