@@ -67,3 +67,13 @@ body {
 * {
   scrollbar-width: thin;
 }
+
+@media screen and (max-width: 1350px) and (min-width: 1000px) {
+  .leftSide {
+    min-width: 65%;
+  }
+
+  .rightSide {
+    min-width: 35%;
+  }
+}

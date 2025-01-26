@@ -68,7 +68,7 @@ const LoginComponent = () => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl font-primary">
+    <div className="flex flex-col rounded-lg w-full bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl font-primary">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center dark:text-blue-600">
         Login
       </h1>
@@ -90,7 +90,7 @@ const LoginComponent = () => {
           type="email"
           name="email"
           id="email"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
+          className="w-full border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
           placeholder="Enter your email"
           onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
         />
@@ -106,7 +106,7 @@ const LoginComponent = () => {
             type={passwordShown ? 'text' : 'password'}
             name="password"
             id="password"
-            className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
+            className=" w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
             placeholder="Enter your password"
             onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
           />
