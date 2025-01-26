@@ -20,6 +20,12 @@ const LoginComponent = () => {
   const [error, setError] = useState<string | null>(null);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
+  const playLoginSound = () => {
+    const audio = new Audio('/audio/login.wav');
+    audio.volume = 0.4;
+    audio.play();
+  };
+
   useEffect(() => {
     if (error) {
       setShowErrorMessage(true);
@@ -50,6 +56,7 @@ const LoginComponent = () => {
         const accessToken = res.data.accessToken;
 
         localStorage.setItem('jwtToken', accessToken);
+        playLoginSound();
         setLoading(false);
         router.push('/');
       })
@@ -92,7 +99,11 @@ const LoginComponent = () => {
           id="email"
           className="w-full border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
           placeholder="Enter your email"
-          onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+          onChange={(e) => {
+            setEmail((e.target as HTMLInputElement).value);
+            setShowErrorMessage(false);
+            setError(null);
+          }}
         />
 
         <label
@@ -108,7 +119,11 @@ const LoginComponent = () => {
             id="password"
             className=" w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
             placeholder="Enter your password"
-            onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
+            onChange={(e) => {
+              setError(null);
+              setShowErrorMessage(false);
+              setPassword((e.target as HTMLInputElement).value);
+            }}
           />
           <a
             className="absolute right-3 top-4 text-gray-500 hover:text-gray-700"

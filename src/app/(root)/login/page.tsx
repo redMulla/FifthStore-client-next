@@ -27,6 +27,17 @@ export default function Login() {
           FifthStore App
         </h1>
         <LoginComponent />
+
+        <div className="absolute bottom-0 start-0 w-full py-6 text-center">
+          &copy;{' '}
+          <a
+            href="https://my-portfolio-iota-two-46.vercel.app/"
+            target="blank"
+            className="hover:text-blue-700"
+          >
+            Vassilly Ibinkwiye
+          </a>
+        </div>
       </div>
     </div>
   );
