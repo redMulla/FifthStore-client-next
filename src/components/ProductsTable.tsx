@@ -1,4 +1,4 @@
-import { Modal, Table } from 'flowbite-react';
+import { Checkbox, Modal, Table } from 'flowbite-react';
 import React, { useState } from 'react';
 
 import { ProductModel, products } from '@/data';
@@ -21,9 +21,12 @@ const ProductsTable = () => {
     setIsOpen(false);
   };
   return (
-    <div className="p-5">
-      <Table className="font-primary">
+    <div className="">
+      <Table className="font-primary rounded-none" hoverable>
         <Table.Head>
+          <Table.HeadCell className="p-4">
+            <Checkbox />
+          </Table.HeadCell>
           <Table.HeadCell>Product name</Table.HeadCell>
           <Table.HeadCell>Color</Table.HeadCell>
           <Table.HeadCell>Category</Table.HeadCell>
@@ -38,6 +41,9 @@ const ProductsTable = () => {
               key={product.id}
               className="bg-white dark:border-gray-700 dark:bg-gray-800"
             >
+              <Table.Cell className="p-4">
+                <Checkbox />
+              </Table.Cell>
               <Table.Cell
                 className="whitespace-nowrap font-medium text-gray-900 dark:text-white dark:hover:text-blue-400 hover:text-blue-500 cursor-pointer"
                 onClick={() => handleOpenModal(product)}
