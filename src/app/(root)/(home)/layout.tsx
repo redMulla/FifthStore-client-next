@@ -1,6 +1,7 @@
 import { FooterComponent } from '@/components/FooterComponent';
 import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
+import { DashboardProvider } from '@/context/DashboardContext';
 import { Flowbite } from 'flowbite-react';
 import { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
@@ -30,7 +31,7 @@ export default function HomeLayout({
             <SideBar />
           </div>
           <main className="w-full  h-full ms-16 lg:ms-60 overflow-auto">
-            {children}
+            <DashboardProvider>{children}</DashboardProvider>
           </main>
         </div>
       </div>
