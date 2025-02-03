@@ -11,7 +11,7 @@ export default function Login() {
           backgroundImage: `url('./images/loginbg.jpg')`,
         }}
       >
-        <div className="size-full dark:bg-gray-900 dark:bg-opacity-20"></div>
+        <div className="size-full bg-gray-900 bg-opacity-15 dark:bg-opacity-25"></div>
       </div>
 
       {/* Right: Login Section */}
