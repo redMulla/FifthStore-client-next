@@ -22,7 +22,7 @@ const NavBar = () => {
           />
         </div>
         <div className="flex flex-row gap-2">
-          <div className="h-[100%] hidden lg:flex items-center relative">
+          <div className="h-[100%] hidden md:flex items-center relative">
             <input
               type="text"
               placeholder="search"
@@ -37,10 +37,10 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faBell} />
             <div className="h-3 w-3 rounded-full bg-red-500 absolute top-3 -right-1"></div>
           </div>
-          <div className="lg:hidden flex h-full items-center ms-2 text-blue-950 mt">
+          <div className="md:hidden flex h-full items-center ms-2 text-blue-950 mt">
             <FontAwesomeIcon icon={faBars} size="lg" />
           </div>
-          <div className="py-2">
+          <div className="py-2 hidden md:block">
             <Flowbite>
               <DarkThemeToggle />
             </Flowbite>

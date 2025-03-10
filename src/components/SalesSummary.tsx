@@ -1,27 +1,22 @@
-'use client';
+import React from 'react';
 import {
   faChartColumn,
   faCalendarDays,
   faDollarSign,
   faBagShopping,
 } from '@fortawesome/free-solid-svg-icons';
-import React, { useEffect, useState } from 'react';
 import SalesCard from './SalesCard';
-import { api } from '@/api';
-import { io } from 'socket.io-client';
+import { useDashboard } from '@/context/DashboardContext';
 require('dotenv').config();
 
-
 const SalesSummary = () => {
-  const baseUrl = process.env.BASE_URL
-  const [isLoading, setIsLoading] = useState(false);
-  const [totalProd, setTotalProd] = useState(0);
-  const [todaySales, setTodaySales] = useState(0)
+  const { dashboardData, isLoading } = useDashboard();
+  const baseUrl = process.env.BASE_URL;
   const salesArr = [
     {
       icon: faChartColumn,
       title: "Today's Sales",
-      value: todaySales,
+      value: dashboardData.todaySales,
       color: 'red',
     },
     {
@@ -39,33 +34,10 @@ const SalesSummary = () => {
     {
       icon: faBagShopping,
       title: 'Products',
-      value: totalProd,
+      value: dashboardData.totalProducts,
       color: 'pink',
     },
   ];
-  useEffect(() => {
-    setIsLoading(true);
-    api.get('/dashboard').then((response) => {
-      console.log('HHHHHHHHHHHHHH', response.data);
-      setTotalProd(response.data.totalProducts);
-      setTodaySales(response.data.todaySales)
-      setIsLoading(false);
-    });
-
-    const socket = io('http://localhost:4000', {
-      withCredentials: true,
-    });
-
-    socket.on('dashboardUpdate', (data) => {
-      console.log('Dashboard Update Recieved', data);
-      setTotalProd(data.totalProducts);
-      setTodaySales(data.todaySales)
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
   return (
     <div className="max-w-full bg-blue-50 dark:bg-gray-800 overflow-x-auto h-44 flex flex-row flex-nowrap items-center justify-around gap-3 font-primary">
       {/* CARD SECTION */}
@@ -76,6 +48,7 @@ const SalesSummary = () => {
           title={item.title}
           value={item.value.toString()}
           color={item.color}
+          loading={isLoading}
         />
       ))}
     </div>

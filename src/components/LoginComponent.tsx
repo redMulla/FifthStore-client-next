@@ -20,6 +20,12 @@ const LoginComponent = () => {
   const [error, setError] = useState<string | null>(null);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
+  const playLoginSound = () => {
+    const audio = new Audio('/audio/login.wav');
+    audio.volume = 0.4;
+    audio.play();
+  };
+
   useEffect(() => {
     if (error) {
       setShowErrorMessage(true);
@@ -50,6 +56,7 @@ const LoginComponent = () => {
         const accessToken = res.data.accessToken;
 
         localStorage.setItem('jwtToken', accessToken);
+        playLoginSound();
         setLoading(false);
         router.push('/');
       })
@@ -68,7 +75,7 @@ const LoginComponent = () => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className="flex flex-col rounded-lg bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl font-primary">
+    <div className="flex flex-col rounded-lg w-full bg-gray-100 dark:bg-gray-700 p-8 border dark:border-gray-500 border-gray-400 py-12 shadow-2xl font-primary">
       <h1 className="text-3xl font-bold text-blue-950 pb-2 text-center dark:text-blue-600">
         Login
       </h1>
@@ -90,9 +97,13 @@ const LoginComponent = () => {
           type="email"
           name="email"
           id="email"
-          className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
+          className="w-full border border-gray-700 rounded bg-gray-200 h-14 dark:bg-gray-800 dark:text-white text-black px-3"
           placeholder="Enter your email"
-          onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+          onChange={(e) => {
+            setEmail((e.target as HTMLInputElement).value);
+            setShowErrorMessage(false);
+            setError(null);
+          }}
         />
 
         <label
@@ -106,9 +117,13 @@ const LoginComponent = () => {
             type={passwordShown ? 'text' : 'password'}
             name="password"
             id="password"
-            className="min-w-72 border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
+            className=" w-full border border-gray-700 rounded bg-gray-200 h-14 text-black px-3 mb-5  dark:bg-gray-800 dark:text-white"
             placeholder="Enter your password"
-            onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
+            onChange={(e) => {
+              setError(null);
+              setShowErrorMessage(false);
+              setPassword((e.target as HTMLInputElement).value);
+            }}
           />
           <a
             className="absolute right-3 top-4 text-gray-500 hover:text-gray-700"

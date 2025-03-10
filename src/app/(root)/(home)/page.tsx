@@ -42,7 +42,9 @@ export default function Home() {
               </Select>
             </div>
           </div>
-          <SalesOrder sales={salesData} />
+          <div className="w-100 overflow-x-auto">
+            <SalesOrder sales={salesData} />
+          </div>
         </div>
       </div>
 

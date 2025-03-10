@@ -1,4 +1,3 @@
-'use client';
 import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +12,7 @@ import { useUser } from '@/context/UserContext';
 import { useRouter } from 'nextjs-toploader/app';
 import Link from 'next/link';
 import NewProduct from '@/components/NewProduct';
+import { Avatar, Dropdown } from 'flowbite-react';
 
 type Props = {
   dash?: boolean;
@@ -30,57 +30,45 @@ export const SideAction = ({ dash }: Props) => {
     router.push('/login');
   };
 
+  const colors = ['success', 'blue', 'pink', 'purple'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
   return (
     <div className="bg-white border-s-2 right-0 border-blue-50 hidden md:inline col-span-1 dark:bg-blue-950 h-full max-h-full overflow-auto">
-      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 flex justify-center items-center flex-row max-w-full">
-        <div className="h-12 w-12 min-h-12 min-w-12 overflow-hidden rounded-full">
-          <img
-            src="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="profile"
-            className="size-full"
-          />
+      <div className="h-28 w-full border-b border-blue-100 px-4 xl:px-8 items-center flex flex-row-reverse justify-end max-w-full">
+        <div className="flex md:order-2">
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar
+                img="https://images.pexels.com/photos/13081260/pexels-photo-13081260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                bordered
+                color={randomColor}
+                rounded
+              />
+            }
+            className="dark:bg-gray-800"
+          >
+            <Dropdown.Header>
+              <span className="block truncate text-sm font-bold">
+                {user?.email}
+              </span>
+            </Dropdown.Header>
+            <Dropdown.Item>Profile</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
+            <Dropdown.Item>Earnings</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+          </Dropdown>
         </div>
-        <div className="flex-grow flex flex-col ms-2 xl:ms-4 me-2">
-          <p className="font-bold truncate xl:text-lg dark:text-blue-50 text-blue-950">
-            {user?.name}
-          </p>
-          <p className="text-blue-500 text-xs xl:text-sm dark:text-blue-300">
+
+        <div className="space-y-1 font-medium text-black dark:text-white ps-2">
+          <div className="font-bold">{user?.name}</div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">
             {user?.role}
-          </p>
+          </div>
         </div>
-        <button
-          onClick={() => setShowMenu(!showMenu)}
-          className={`text-blue-950 dark:text-blue-50 border px-2 py-1 relative rounded ${
-            showMenu ? '' : 'hover:bg-gray-100 dark:hover:bg-gray-950'
-          } cursor-pointer`}
-        >
-          <FontAwesomeIcon icon={faEllipsisV} />
-          {showMenu && (
-            <div className="absolute shadow-lg rounded-md overflow-hidden h-28 w-36 top-3 -left-36 bg-gray-100 dark:bg-gray-900">
-              <ul className="w-full text-center h-full flex flex-col justify-between ">
-                <li
-                  tabIndex={0}
-                  className="border-b h-full dark:border-gray-700 flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
-                >
-                  Profile
-                </li>
-                <li
-                  tabIndex={0}
-                  className="border-b dark:border-gray-700 h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
-                >
-                  Settings
-                </li>
-                <li
-                  tabIndex={0}
-                  onClick={logout}
-                  className="h-full flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-950"
-                >
-                  Logout
-                </li>
-              </ul>
-            </div>
-          )}
-        </button>
       </div>
       <div className="border-b border-blue-50 px-4 xl:px-8 pt-4 pb-8">
         <p className="font-bold xl:text-lg text-blue-950 text-nowrap dark:text-blue-50">
